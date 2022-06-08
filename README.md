@@ -15,6 +15,7 @@ Figma com telas:
   O objetivo do projeto é criar um sistema desenvolvido em Java para uma casa de
 jogos de tabuleiro e RPG, onde os clientes podem fazer o aluguel de jogos e acessórios 
 como miniaturas, mapas e dados para sessões de RPG.
+
   O uso dos itens se dá nas dependências do estabelecimento, e cada
 pessoa registrada na reserva já é cobrada com uma taxa inicial. Cada reserva é
 feita no nome de um cliente cadastrado, e o total a pagar é a soma das
