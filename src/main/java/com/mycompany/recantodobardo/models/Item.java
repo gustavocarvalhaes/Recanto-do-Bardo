@@ -12,12 +12,21 @@ package com.mycompany.recantodobardo.models;
  
 public class Item {
     
-    private Integer idItem;
+    private int idItem;
     private String nome;
     private String tipo;
-    private Integer quantidade;
-    private Float precoHora;
-    private Boolean disponibilidade;
+    private int quantidade;
+    private float precoHora;
+    private boolean disponibilidade;
+
+    public Item(int i, String nome, String tipo, int quantidade, float precoHora, boolean b) {
+       setIdItem(i);
+       setNome(nome);
+       setTipo(tipo);
+       setQuantidade(quantidade);
+       setPrecoHora(precoHora);
+       setDisponibilidade(b);
+    }
 
     /**
      * @return the idItem
@@ -101,6 +110,10 @@ public class Item {
      */
     public void setDisponibilidade(Boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
+    }
+    
+    public void cadastrarItem(Item item){
+        
     }
     
 }

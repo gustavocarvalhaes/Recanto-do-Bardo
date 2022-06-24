@@ -12,10 +12,17 @@ package com.mycompany.recantodobardo.models;
  */
 public class Cliente {
     
-    private Integer idCliente;
+    private int idCliente;
     private String nome;
     private String celular;
     private String cpf;
+    
+    public Cliente(int idCliente, String nome, String celular, String cpf){
+        this.idCliente = idCliente;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.celular = celular;
+    }
 
     /**
      * @return the idCliente

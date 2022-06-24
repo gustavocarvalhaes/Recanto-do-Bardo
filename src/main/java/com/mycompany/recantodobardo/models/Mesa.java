@@ -10,10 +10,17 @@ package com.mycompany.recantodobardo.models;
    // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Mesa {
     
-    private Integer idMesa;
+    private int idMesa;
     private Reserva reserva;
-    private Integer assentos;
-    private Boolean disponibilidade;
+    private int assentos;
+    private boolean disponibilidade;
+    
+    public Mesa(int id, Reserva reserva, int assentos, boolean disponibilidade){
+        this.idMesa = id;
+        this.reserva = reserva;
+        this.assentos = assentos;
+        this.disponibilidade = disponibilidade;
+    }
 
     /**
      * @return the idMesa
