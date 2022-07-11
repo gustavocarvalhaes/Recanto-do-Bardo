@@ -10,6 +10,7 @@ import com.mycompany.recantodobardo.models.Item;
  * @author cdcru
  */
 public class ItemController {
+    
     public boolean cadastrarItem(String nome,String tipo,int quantidade,
     float precoHora){
         //se todos os dados estiverem preenchidos corretamente
@@ -17,5 +18,7 @@ public class ItemController {
                 && quantidade != 0 && precoHora == 0){
             Item item = new Item(1,nome,tipo,quantidade,precoHora,true);
         }
+        
+        return true;
     }
 }

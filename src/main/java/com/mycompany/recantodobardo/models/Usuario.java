@@ -10,8 +10,15 @@ package com.mycompany.recantodobardo.models;
    // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Usuario {
     
+    // criamos a classe Usuario pois as classes Administrador e Funcionario irão herdar a classe Usuario 
+    
     private String email ;
     private String senha;
+    
+    public Usuario(String email, String senha){
+        this.email = email;
+        this.senha = senha;
+    }
 
     /**
      * @return the senha

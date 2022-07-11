@@ -19,13 +19,13 @@ public class Item {
     private float precoHora;
     private boolean disponibilidade;
 
-    public Item(int i, String nome, String tipo, int quantidade, float precoHora, boolean b) {
-       setIdItem(i);
-       setNome(nome);
-       setTipo(tipo);
-       setQuantidade(quantidade);
-       setPrecoHora(precoHora);
-       setDisponibilidade(b);
+    public Item(int i, String nome, String tipo, int quantidade, float precoHora, boolean disponibilidade) {
+       this.idItem = i;
+       this.nome = nome;
+       this.tipo = tipo;
+       this.quantidade = quantidade;
+       this.precoHora = precoHora;
+       this.disponibilidade = disponibilidade;
     }
 
     /**

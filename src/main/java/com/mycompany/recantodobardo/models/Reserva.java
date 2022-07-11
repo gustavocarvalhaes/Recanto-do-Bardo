@@ -11,15 +11,21 @@ import java.util.ArrayList;
    // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Reserva {
     
-    private Integer idReserva;
+    private int idReserva;
     private Cliente cliente; 
-    private ArrayList<Item> itens = new ArrayList<Item>();
-    private Float total;
+    private ArrayList<Item> itens = new ArrayList<Item>(); //colocamos um arrayList pois uma reserva pode ter mais de um item
+    private float total;
+    
+    public Reserva(int id, Cliente cliente, float total){
+        this.idReserva = id;
+        this.cliente = cliente;
+        this.total = total;
+    }
 
     /**
      * @return the idReserva
      */
-    public Integer getIdReserva() {
+    public int getIdReserva() {
         return idReserva;
     }
 
@@ -61,7 +67,7 @@ public class Reserva {
     /**
      * @return the total
      */
-    public Float getTotal() {
+    public float getTotal() {
         return total;
     }
 
