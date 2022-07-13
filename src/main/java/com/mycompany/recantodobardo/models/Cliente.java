@@ -5,20 +5,19 @@
 package com.mycompany.recantodobardo.models;
 
 /**
-   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-    Gabriella Cruz e Silva (gabriellac2002) 202165512B
-    Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-    Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
+ * Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+ * Gabriella Cruz e Silva (gabriellac2002) 202165512B
+ * Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+ * Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C
  */
 public class Cliente {
-    
+
     private int idCliente;
     private String nome;
     private String celular;
     private String cpf;
-    
-    public Cliente(int idCliente, String nome, String celular, String cpf){
-        this.idCliente = idCliente;
+
+    public Cliente(String nome, String celular, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
         this.celular = celular;
@@ -79,5 +78,8 @@ public class Cliente {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    
+
+    public void cadastraCliente(Cliente cliente) {
+
+    }
 }
