@@ -8,17 +8,20 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.*;
+
 /**
- *
- * @author cdcru
+   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+    Gabriella Cruz e Silva (gabriellac2002) 202165512B
+    Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+    Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
  */
+
 public class TelaLogin extends JFrame{
     
     private JTextField text_field_email;
     private JTextField text_field_senha;
     private JButton button_login;
     private JPanel formLogin;
-    int size = 15;
     
     
     public TelaLogin(){
@@ -50,18 +53,23 @@ public class TelaLogin extends JFrame{
         formLogin.add(espaco1);
         formLogin.add(espaco2);
         
+        JLabel label_titulo = new JLabel("Recanto do Bardo");
+        espaco1.add(label_titulo);
+        JLabel label_espaco = new JLabel("");
+        espaco2.add(label_espaco);
+        
         
         //email
         JLabel label_email = new JLabel("Email:");
         espaco1.add(label_email);
-        this.setText_field_email(new JTextField(50));
+        this.setText_field_email(new JTextField(30));
         //this.text_field_email.setPreferredSize(new Dimension(100,10));
         espaco2.add(getText_field_email());
         
         //senha
         JLabel label_senha = new JLabel("Senha:");
         espaco1.add(label_senha);
-        this.setText_field_senha(new JTextField(50));
+        this.setText_field_senha(new JTextField(30));
         espaco2.add(getText_field_senha());
         
         //button
@@ -79,30 +87,22 @@ public class TelaLogin extends JFrame{
         this.text_field_email = text_field_email;
     }
 
-    /**
-     * @return the text_field_senha
-     */
+
     public JTextField getText_field_senha() {
         return text_field_senha;
     }
 
-    /**
-     * @param text_field_senha the text_field_senha to set
-     */
+
     public void setText_field_senha(JTextField text_field_senha) {
         this.text_field_senha = text_field_senha;
     }
 
-    /**
-     * @return the button_login
-     */
+
     public JButton getButton_login() {
         return button_login;
     }
 
-    /**
-     * @param button_login the button_login to set
-     */
+
     public void setButton_login(JButton button_login) {
         this.button_login = button_login;
     }

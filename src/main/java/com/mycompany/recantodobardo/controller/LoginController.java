@@ -5,6 +5,7 @@
 package com.mycompany.recantodobardo.controller;
 
 import com.mycompany.recantodobardo.view.TelaLogin;
+import com.mycompany.recantodobardo.view.PaginaFuncionarios;
 
 /**
  *
@@ -14,5 +15,8 @@ public class LoginController {
     public static void main(String []args){
         TelaLogin login = new TelaLogin();
         login.setVisible(true);
+        
+       // PaginaFuncionarios pagina = new PaginaFuncionarios();
+       
     }
 }
