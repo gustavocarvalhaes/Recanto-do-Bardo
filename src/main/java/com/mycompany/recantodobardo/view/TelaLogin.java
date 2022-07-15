@@ -45,10 +45,10 @@ public class TelaLogin extends JFrame{
         //panel auxiliar
         JPanel espaco1 = new JPanel();
         espaco1.setSize(300,200);
-        espaco1.setLayout(new GridLayout(4,1));
+        espaco1.setLayout(new GridLayout(5,1));
         JPanel espaco2 = new JPanel();
         espaco2.setSize(300,200);
-        espaco2.setLayout(new GridLayout(4,1));
+        espaco2.setLayout(new GridLayout(5,1));
         
         formLogin.add(espaco1);
         formLogin.add(espaco2);
@@ -64,17 +64,17 @@ public class TelaLogin extends JFrame{
         espaco1.add(label_email);
         this.setText_field_email(new JTextField(30));
         //this.text_field_email.setPreferredSize(new Dimension(100,10));
-        espaco2.add(getText_field_email());
+        espaco2.add(this.text_field_email);
         
         //senha
         JLabel label_senha = new JLabel("Senha:");
         espaco1.add(label_senha);
         this.setText_field_senha(new JTextField(30));
-        espaco2.add(getText_field_senha());
+        espaco2.add(this.text_field_senha);
         
         //button
         this.setButton_login(new JButton("Ok"));
-        espaco1.add(this.getButton_login());
+        espaco1.add(this.button_login);
        
     }
 

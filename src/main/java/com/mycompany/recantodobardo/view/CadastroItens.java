@@ -38,17 +38,17 @@ public class CadastroItens extends JFrame{
         
         this.formCadItens = new JPanel();
         this.formCadItens.setLayout(new FlowLayout());
-        this.formCadItens.setBorder(BorderFactory.createTitledBorder("Login"));
+        this.formCadItens.setBorder(BorderFactory.createTitledBorder("Itens"));
         this.add(formCadItens);
         
         
         //panel auxiliar
         JPanel espaco1 = new JPanel();
         espaco1.setSize(300,200);
-        espaco1.setLayout(new GridLayout(4,1));
+        espaco1.setLayout(new GridLayout(5,1));
         JPanel espaco2 = new JPanel();
         espaco2.setSize(300,200);
-        espaco2.setLayout(new GridLayout(4,1));
+        espaco2.setLayout(new GridLayout(5,1));
         
         formCadItens.add(espaco1);
         formCadItens.add(espaco2);
@@ -59,22 +59,74 @@ public class CadastroItens extends JFrame{
         JLabel label_espaco = new JLabel("");
         espaco2.add(label_espaco);
         
-        //email
-        JLabel label_nome_item = new JLabel("Nome:");
+        //nome
+        JLabel label_nome_item = new JLabel("Nome do Item:");
         espaco1.add(label_nome_item);
-        this.text_field_nome(new JTextField(50));
-        espaco2.add(text_field_nome());
+        this.setText_field_nome(new JTextField(30));
+        espaco2.add(this.text_field_nome);
         
-        //senha
-        JLabel label_senha = new JLabel("Senha:");
-        espaco1.add(label_senha);
-        this.setText_field_senha(new JTextField(50));
-        espaco2.add(getText_field_senha());
+        //tipo
+        JLabel label_tipo_item = new JLabel("Tipo do item:");
+        espaco1.add(label_tipo_item);
+        this.setText_field_tipo(new JTextField(30));
+        espaco2.add(this.text_field_tipo);
         
-        //button
-        this.setButton_login(new JButton("Ok"));
-        espaco1.add(this.getButton_login());
+        //preco/hora
+        JLabel label_tipo_preco_hora = new JLabel("Preço por hora:");
+        espaco1.add(label_tipo_preco_hora);
+        this.setText_field_preco_hora(new JTextField(30));
+        espaco2.add(this.text_field_preco_hora);
+        
+        
+        //botoes
+        this.setButton_cancel(new JButton("Cancelar"));
+        espaco1.add(this.button_cancel);
+        this.setButton_confirm(new JButton("Confirmar"));
+        espaco2.add(this.button_confirm);
        
     }
+    
+    public JTextField getText_field_nome() {
+        return text_field_nome;
+    }
+    
+    public void setText_field_nome(JTextField text_field_nome) {
+        this.text_field_nome = text_field_nome;
+    }
+    
+    public JTextField getText_field_tipo() {
+        return text_field_nome;
+    }
+    
+    public void setText_field_tipo(JTextField text_field_tipo) {
+        this.text_field_tipo = text_field_tipo;
+    }
+    
+    public JTextField getText_field_preco_hora() {
+        return text_field_preco_hora;
+    }
+    
+    public void setText_field_preco_hora(JTextField text_field_preco_hora) {
+        this.text_field_preco_hora = text_field_preco_hora;
+    }
+    
+     public JButton getButton_confirm() {
+        return button_confirm;
+    }
+
+
+    public void setButton_confirm(JButton button_confirm) {
+        this.button_confirm = button_confirm;
+    }
+
+    public JButton getButton_cancel() {
+        return button_cancel;
+    }
+
+
+    public void setButton_cancel(JButton button_cancel) {
+        this.button_cancel = button_cancel;
+    }
+
 
 }

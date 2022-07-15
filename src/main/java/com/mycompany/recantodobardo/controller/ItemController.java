@@ -4,6 +4,7 @@
  */
 package com.mycompany.recantodobardo.controller;
 import com.mycompany.recantodobardo.models.Item;
+import com.mycompany.recantodobardo.view.CadastroItens;
 
 /**
  *
@@ -11,14 +12,8 @@ import com.mycompany.recantodobardo.models.Item;
  */
 public class ItemController {
     
-    public boolean cadastrarItem(String nome,String tipo,int quantidade,
-    float precoHora){
-        //se todos os dados estiverem preenchidos corretamente
-        if( nome != null && nome.length() > 0 && tipo != null && tipo.length() > 0
-                && quantidade != 0 && precoHora == 0){
-            Item item = new Item(1,nome,tipo,quantidade,precoHora,true);
-        }
-        
-        return true;
-    }
+  public static void main(String []args){
+      CadastroItens tela_cadastro = new CadastroItens();
+      tela_cadastro.setVisible(true);
+  }
 }
