@@ -32,14 +32,14 @@ public class CadastroClientes extends JFrame{
     }
     
     private void inicializar(){
-        this.setTitle("Cadastro de Itens");
+        this.setTitle("Cadastro de Clientes");
         this.setSize(640,480);
         this.setVisible(true);
         
         
         this.formCadClientes = new JPanel();
         this.formCadClientes.setLayout(new FlowLayout());
-        this.formCadClientes.setBorder(BorderFactory.createTitledBorder("Itens"));
+        this.formCadClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));
         this.add(formCadClientes);
         
         
