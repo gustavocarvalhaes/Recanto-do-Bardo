@@ -4,6 +4,11 @@
  */
 package com.mycompany.recantodobardo.models;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import com.google.gson.Gson;
+import java.util.ArrayList;// para fazer uma lista de usuários
+
 /**
  * Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
  * Gabriella Cruz e Silva (gabriellac2002) 202165512B
@@ -79,7 +84,24 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public void cadastraCliente(Cliente cliente) {
+    /**
+     * @param cliente
+     */
+    public String cadastraCliente(Cliente cliente) {
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(cliente);
+
+        try {
+            FileWriter fw = new FileWriter("/database/clientes.json");
+            fw.write(json);
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // para mais informações sobre lidar com o json
+        // https://www.devmedia.com.br/como-converter-objetos-java-para-ou-de-json-com-a-biblioteca-gson/28091
+        return "Cadastrado com sucesso.";
     }
 }

@@ -5,6 +5,7 @@
 package com.mycompany.recantodobardo.controller;
 
 import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.models.Usuario;
 
 import java.text.ParseException;
 
@@ -14,9 +15,18 @@ import java.text.ParseException;
  */
 public class ClienteController {
 
+    public static Usuario usuarioLog;
+
+    public static Usuario getUsuarioLog() {
+        return usuarioLog;
+    }
+
     public boolean cadastraCliente(String nome, String celular, String cpf) throws ParseException {
 
-        if (nome != null && nome.length() > 0 && validaCpf(cpf) && validaCelular(celular)) {
+        Usuario admLog = ClienteController.getUsuarioLog();
+
+        if (admLog != null && admLog.isAdm() && nome != null && nome.length() > 0 && validaCpf(cpf)
+                && validaCelular(celular)) {
             Cliente cliente = new Cliente(nome, celular, cpf);
             cliente.cadastraCliente(cliente);
             return true;
@@ -24,12 +34,14 @@ public class ClienteController {
         return false;
     }
 
+    // essas validações só serão necessárias caso não haja nenhuma máscara no front
+    // da aplicação
     public boolean validaCpf(String cpf) {
         for (int i = 0; i < cpf.length(); i++) {
             if (!Character.isDigit(cpf.charAt(i))) {
-                // if (!(i == 3 || i == 7 || i == 11)) {
-                return false;
-                // }
+                if (!(i == 3 || i == 7 || i == 11)) {
+                    return false;
+                }
             }
         }
         return true;
