@@ -16,34 +16,34 @@ import javax.swing.JPanel;
  *
  * @author cdcru
  */
-public class MenuMesas extends JFrame{
+public class MenuReserva extends JFrame{
     private JButton button_lista;
     private JButton button_voltar;
     private JButton button_cadastro;
-    private JPanel menuItensAdm;
+    private JPanel menuReservas;
     
-    public MenuMesas(){
+    public MenuReserva(){
         inicializar();
     }
 
     private void inicializar() {
-        this.setTitle("Mesas");
+        this.setTitle("Reservas");
         this.setSize(640,480);
         this.setVisible(true);
         
-        this.menuItensAdm = new JPanel();
-        this.menuItensAdm.setLayout(new FlowLayout());
-        this.menuItensAdm.setBorder(BorderFactory.createTitledBorder("Menu de mesas"));
-        this.add(menuItensAdm);
+        this.menuReservas = new JPanel();
+        this.menuReservas.setLayout(new FlowLayout());
+        this.menuReservas.setBorder(BorderFactory.createTitledBorder("Menu de reservas"));
+        this.add(menuReservas);
         
         //panel auxiliar
         JPanel espaco1 = new JPanel();
         espaco1.setSize(300,200);
         espaco1.setLayout(new GridLayout(4,1));
         
-        menuItensAdm.add(espaco1);
+        menuReservas.add(espaco1);
 
-        JLabel label_titulo = new JLabel("---- Mesas ----");
+        JLabel label_titulo = new JLabel("---- Reservas ----");
         espaco1.add(label_titulo);
         this.setButton_voltar(new JButton("Voltar"));
         espaco1.add(this.button_voltar);
@@ -83,3 +83,5 @@ public class MenuMesas extends JFrame{
         this.button_voltar = button_voltar;
     }
 }
+
+
