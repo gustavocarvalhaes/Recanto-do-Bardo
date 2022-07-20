@@ -5,6 +5,7 @@
 package com.mycompany.recantodobardo.controller;
 import com.mycompany.recantodobardo.models.Item;
 import com.mycompany.recantodobardo.view.CadastroItens;
+import com.mycompany.recantodobardo.view.MenuItensClientes;
 
 /**
  *
@@ -13,7 +14,10 @@ import com.mycompany.recantodobardo.view.CadastroItens;
 public class ItemController {
     
   public static void main(String []args){
-      CadastroItens tela_cadastro = new CadastroItens();
-      tela_cadastro.setVisible(true);
+      //CadastroItens tela_cadastro = new CadastroItens();
+      //tela_cadastro.setVisible(true);
+    
+      MenuItensClientes tela_menu_clientes = new MenuItensClientes();
+      tela_menu_clientes.setVisible(true);
   }
 }

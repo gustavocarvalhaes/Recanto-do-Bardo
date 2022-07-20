@@ -28,21 +28,21 @@ public class MenuClientes extends JFrame{
    }
     
     private void inicializar(){
-        this.setTitle("Login");
+        this.setTitle("Clientes");
         this.setSize(640,480);
         this.setVisible(true);
         
-        this.setMenuClientes(new JPanel());
-        this.getMenuClientes().setLayout(new FlowLayout());
-        this.getMenuClientes().setBorder(BorderFactory.createTitledBorder("Menu Clientes"));
-        this.add(getMenuClientes());
+        this.menuClientes = new JPanel();
+        this.menuClientes.setLayout(new FlowLayout());
+        this.menuClientes.setBorder(BorderFactory.createTitledBorder("Menu Clientes"));
+        this.add(menuClientes);
         
         //panel auxiliar
         JPanel espaco1 = new JPanel();
         espaco1.setSize(300,200);
         espaco1.setLayout(new GridLayout(4,1));
         
-        getMenuClientes().add(espaco1);
+        menuClientes.add(espaco1);
 
         JLabel label_titulo = new JLabel("---- Clientes ----");
         espaco1.add(label_titulo);
