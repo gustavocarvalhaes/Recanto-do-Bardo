@@ -4,13 +4,18 @@
  */
 package com.mycompany.recantodobardo.controller;
 import com.mycompany.recantodobardo.view.CadastroMesas;
+import com.mycompany.recantodobardo.view.MenuMesas;
 /**
  *
  * @author cdcru
  */
 public class MesasController {
     public static void main(String[] args) {
-        CadastroMesas tela_cadastro = new CadastroMesas();
-        tela_cadastro.setVisible(true);
+        //CadastroMesas tela_cadastro = new CadastroMesas();
+       // tela_cadastro.setVisible(true);
+       
+       MenuMesas tela_menu = new MenuMesas();
+       tela_menu.setVisible(true);
+       
     }
 }

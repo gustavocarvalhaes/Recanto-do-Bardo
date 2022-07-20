@@ -16,24 +16,24 @@ import javax.swing.JPanel;
  *
  * @author cdcru
  */
-public class MenuItensAdmin extends JFrame{
-    private JButton button_lista;
+public class MenuMesas extends JFrame{
+     private JButton button_lista;
     private JButton button_voltar;
     private JButton button_cadastro;
     private JPanel menuItensAdm;
     
-    public MenuItensAdmin(){
+    public MenuMesas(){
         inicializar();
     }
 
     private void inicializar() {
-        this.setTitle("Adiministrativo");
+        this.setTitle("Mesas");
         this.setSize(640,480);
         this.setVisible(true);
         
         this.menuItensAdm = new JPanel();
         this.menuItensAdm.setLayout(new FlowLayout());
-        this.menuItensAdm.setBorder(BorderFactory.createTitledBorder("Menu Administrativo"));
+        this.menuItensAdm.setBorder(BorderFactory.createTitledBorder("Menu de mesas"));
         this.add(menuItensAdm);
         
         //panel auxiliar
@@ -43,7 +43,7 @@ public class MenuItensAdmin extends JFrame{
         
         menuItensAdm.add(espaco1);
 
-        JLabel label_titulo = new JLabel("---- Itens ----");
+        JLabel label_titulo = new JLabel("---- Mesas ----");
         espaco1.add(label_titulo);
         this.setButton_voltar(new JButton("Voltar"));
         espaco1.add(this.button_voltar);
