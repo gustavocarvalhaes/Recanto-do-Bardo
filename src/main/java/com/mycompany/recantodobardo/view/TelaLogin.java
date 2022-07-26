@@ -3,30 +3,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.recantodobardo.view;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
-   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-    Gabriella Cruz e Silva (gabriellac2002) 202165512B
-    Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-    Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
+ *
+ * @author cdcru
  */
-
 public class TelaLogin extends JFrame{
-    
     private JTextField text_field_email;
     private JTextField text_field_senha;
     private JButton button_login;
     private JPanel formLogin;
     
-    
     public TelaLogin(){
         this.inicializar();
     }
+    
     
     private void inicializar(){
         this.setTitle("Login");
@@ -77,7 +77,7 @@ public class TelaLogin extends JFrame{
         espaco1.add(this.button_login);
        
     }
-
+    
     public JTextField getText_field_email() {
         return text_field_email;
     }
@@ -107,6 +107,10 @@ public class TelaLogin extends JFrame{
         this.button_login = button_login;
     }
     
-    
+    public static void main(String[] args) {
+        TelaLogin tela = new TelaLogin();
+        tela.inicializar();
+    }
     
 }
+
