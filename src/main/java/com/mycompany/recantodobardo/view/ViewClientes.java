@@ -22,7 +22,7 @@ import javax.swing.ListSelectionModel;
  *
  * @author cdcru
  */
-public class ViewClientes extends JFrame{
+public class ViewClientes extends JFrame implements Views{
     private JTextField text_field_nome;
     private JTextField text_field_celular;
     private JTextField text_field_cpf;
@@ -34,18 +34,14 @@ public class ViewClientes extends JFrame{
         this.lastIndex = 0;
     }
     
-    private void configuraJanela() {
+    @Override
+    public void inicializar(){
         this.setSize(500, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
         
-        //this.addWindowListener(new EventoJanela(this));
-
-    }
-    
-    private void configuraClientes() {
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));
         jpClientes.setLayout(new BorderLayout());
@@ -62,9 +58,7 @@ public class ViewClientes extends JFrame{
 
 
         principal.add(jpClientes, BorderLayout.WEST);
-    }
-    
-    private void configuraFormulario() {
+        
         int size = 20;
         JPanel jpFormulario = new JPanel();
         jpFormulario.setBorder(BorderFactory.createTitledBorder("Formulário"));
@@ -97,24 +91,14 @@ public class ViewClientes extends JFrame{
         jpFormulario.add(btnEditar);
         
         principal.add(jpFormulario, BorderLayout.CENTER);
-
-    }
-      
-    public void mostraTela() {
+        
         this.add(principal);
         this.setVisible(true);
     }
     
-    public void montaTela() {
-        configuraJanela();
-        configuraClientes();
-        configuraFormulario();
-        mostraTela();
-    }
-    
     public static void main(String[] args) {
         ViewClientes tela = new ViewClientes();
-        tela.montaTela();
+        tela.inicializar();
     }
 
  }

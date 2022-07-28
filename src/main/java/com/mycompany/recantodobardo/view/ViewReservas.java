@@ -22,7 +22,7 @@ import javax.swing.ListSelectionModel;
  *
  * @author cdcru
  */
-public class ViewReservas extends JFrame{
+public class ViewReservas extends JFrame implements Views{
     private JTextField text_field_quant;
     private JTextField text_field_assentos;
     private JPanel principal;
@@ -33,7 +33,9 @@ public class ViewReservas extends JFrame{
         this.lastIndex = 0;
     }
     
-    private void configuraJanela() {
+    
+    @Override
+    public void inicializar(){
         this.setSize(500, 300);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -41,10 +43,7 @@ public class ViewReservas extends JFrame{
         this.principal.setLayout(new BorderLayout());
         
         //this.addWindowListener(new EventoJanela(this));
-
-    }
-    
-    private void configuraReservas() {
+        
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Reservas"));
         jpClientes.setLayout(new BorderLayout());
@@ -61,10 +60,8 @@ public class ViewReservas extends JFrame{
 
 
         principal.add(jpClientes, BorderLayout.WEST);
-    }
-    
-    private void configuraFormulario() {
-        int size = 20;
+        
+         int size = 20;
         JPanel jpFormulario = new JPanel();
         jpFormulario.setBorder(BorderFactory.createTitledBorder("Formulário"));
 
@@ -93,23 +90,14 @@ public class ViewReservas extends JFrame{
         jpFormulario.add(btnEditar);
         
         principal.add(jpFormulario, BorderLayout.CENTER);
-
-    }
-    
-    public void mostraTela() {
+        
         this.add(principal);
         this.setVisible(true);
-    }
-    
-    public void montaTela() {
-        configuraJanela();
-        configuraMesas();
-        configuraFormulario();
-        mostraTela();
+
     }
     
     public static void main(String[] args) {
       ViewMesas tela = new ViewMesas();
-      tela.montaTela();
+      tela.inicializar();
     }
 }

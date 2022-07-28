@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author cdcru
  */
-public class TelaLogin extends JFrame{
+public class TelaLogin extends JFrame implements Views{
     private JTextField text_field_email;
     private JTextField text_field_senha;
     private JButton button_login;
@@ -28,7 +28,8 @@ public class TelaLogin extends JFrame{
     }
     
     
-    private void inicializar(){
+    @Override
+    public void inicializar(){
         this.setTitle("Login");
         this.setSize(640,480);
         this.setVisible(true);
