@@ -4,20 +4,34 @@
  */
 package com.mycompany.recantodobardo.models;
 
- //   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-  //  Gabriella Cruz e Silva (gabriellac2002) 202165512B
-  //  Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-   // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
+//   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+//  Gabriella Cruz e Silva (gabriellac2002) 202165512B
+//  Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+// Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Usuario {
-    
-    // criamos a classe Usuario pois as classes Administrador e Funcionario irão herdar a classe Usuario 
-    
-    private String email ;
+
+    // criamos a classe Usuario pois as classes Administrador e Cliente irão
+    // herdar a classe Usuario
+
+    private String email;
     private String senha;
-    
-    public Usuario(String email, String senha){
+    private String nome;
+    private boolean adm;
+
+    public Usuario(String email, String senha, String nome, boolean adm) {
+
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
+        this.adm = adm;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     /**
@@ -33,15 +47,6 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    public boolean logar(){
-        if(email == "funcionario@gmail.com"  && senha == "1234" 
-                || email == "adm@gmail.com"  && senha == "adm123"){
-            return true;
-        } else {
-           return false; 
-        }
-    }
 
     /**
      * @return the email
@@ -55,5 +60,22 @@ public class Usuario {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isAdm() {
+        return adm;
+    }
+
+    public void setAdm(boolean adm) {
+        this.adm = adm;
+    }
+    
+    public boolean logar(){
+        if(email == "funcionario@gmail.com"  && senha == "1234" 
+                || email == "adm@gmail.com"  && senha == "adm123"){
+            return true;
+        } else {
+           return false; 
+        }
     }
 }

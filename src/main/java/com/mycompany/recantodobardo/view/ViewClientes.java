@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.recantodobardo.view;
+import com.mycompany.recantodobardo.controllers.AcaoController;
+import com.mycompany.recantodobardo.controllers.AdicionaCliente;
+import com.mycompany.recantodobardo.controllers.EditaCliente;
+import com.mycompany.recantodobardo.controllers.ExibirClientes;
+import com.mycompany.recantodobardo.controllers.RemoveCliente;
 import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.util.LerArquivo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
@@ -24,14 +30,53 @@ import javax.swing.ListSelectionModel;
  */
 public class ViewClientes extends JFrame implements Views{
     private JTextField text_field_nome;
-    private JTextField text_field_celular;
-    private JTextField text_field_cpf;
+    private int lastIndex;
+    private JTextField text_field_email;
+    private JTextField text_field_senha;
     private JPanel principal;
     private JList<Cliente> lista;
-    private int lastIndex;
+
+    public JList<Cliente> getLista() {
+        return lista;
+    }
+
+    public void setLista(JList<Cliente> lista) {
+        this.lista = lista;
+    }
     
     public ViewClientes(){
         this.lastIndex = 0;
+    }
+    
+    public void setLastIndex(int lastIndex){
+        this.lastIndex = lastIndex;
+    }
+    
+    public int getLastIndex() {
+        return lastIndex;
+    }
+    public JTextField getText_field_nome() {
+        return text_field_nome;
+    }
+
+    public void setText_field_nome(JTextField text_field_nome) {
+        this.text_field_nome = text_field_nome;
+    }
+
+    public JTextField getText_field_email() {
+        return text_field_email;
+    }
+
+    public void setText_field_email(JTextField text_field_email) {
+        this.text_field_email = text_field_email;
+    }
+
+    public JTextField getText_field_senha() {
+        return text_field_senha;
+    }
+
+    public void setText_field_senha(JTextField text_field_senha) {
+        this.text_field_senha = text_field_senha;
     }
     
     @Override
@@ -41,19 +86,19 @@ public class ViewClientes extends JFrame implements Views{
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
+        this.addWindowListener(new AcaoController(this));
         
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));
         jpClientes.setLayout(new BorderLayout());
         jpClientes.setPreferredSize(new Dimension(200, 300));
-
         DefaultListModel<Cliente> model = new DefaultListModel<>();
 
 
         lista = new JList<>(model);
         lista.setVisible(true);
         lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        //lista.addListSelectionListener(new TratarLista(this));
+        lista.addListSelectionListener(new ExibirClientes(this));
         jpClientes.add(new JScrollPane(lista), BorderLayout.CENTER);
 
 
@@ -67,27 +112,27 @@ public class ViewClientes extends JFrame implements Views{
         text_field_nome = new JTextField(size);
         jpFormulario.add(text_field_nome);
 
-        jpFormulario.add(new JLabel("Cel:"));
-        text_field_celular = new JTextField(size);
-        jpFormulario.add(text_field_celular);
+        jpFormulario.add(new JLabel("E-mail:"));
+        text_field_email = new JTextField(size);
+        jpFormulario.add(text_field_email);
 
-        jpFormulario.add(new JLabel("CPF:"));
-        text_field_cpf = new JTextField(size);
-        jpFormulario.add(text_field_cpf);
+        jpFormulario.add(new JLabel("Senha:"));
+        text_field_senha = new JTextField(size);
+        jpFormulario.add(text_field_senha);
 
                 
 
         JButton btnAdicionar = new JButton("Adicionar");
-        //btnAdicionar.addActionListener(new SalvarContato(this));
+        btnAdicionar.addActionListener(new AdicionaCliente(this));
         jpFormulario.add(btnAdicionar);
 
         JButton btnRemover = new JButton("Remover");
-       // btnRemover.addActionListener(new RemoverContato(this));
+        btnRemover.addActionListener(new RemoveCliente(this));
         jpFormulario.add(btnRemover);
         
         
         JButton btnEditar = new JButton("Editar");
-       // btnEditar.addActionListener(new EditarContato(this));
+        btnEditar.addActionListener(new EditaCliente(this));
         jpFormulario.add(btnEditar);
         
         principal.add(jpFormulario, BorderLayout.CENTER);

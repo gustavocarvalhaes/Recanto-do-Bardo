@@ -4,12 +4,15 @@
  */
 package com.mycompany.recantodobardo.view;
 
+import com.mycompany.recantodobardo.models.Administrador;
+import com.mycompany.recantodobardo.models.Cliente;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -22,6 +25,24 @@ public class TelaLogin extends JFrame implements Views{
     private JTextField text_field_senha;
     private JButton button_login;
     private JPanel formLogin;
+    private JList<Cliente> listaCliente;
+    private JList<Administrador> listaAdministrador;
+
+    public JList<Cliente> getListaCliente() {
+        return listaCliente;
+    }
+
+    public void setListaCliente(JList<Cliente> listaCliente) {
+        this.listaCliente = listaCliente;
+    }
+
+    public JList<Administrador> getListaAdministrador() {
+        return listaAdministrador;
+    }
+
+    public void setListaAdministrador(JList<Administrador> listaAdministrador) {
+        this.listaAdministrador = listaAdministrador;
+    }
     
     public TelaLogin(){
         this.inicializar();
