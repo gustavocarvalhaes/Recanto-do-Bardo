@@ -33,6 +33,7 @@ public class TelaLogin extends JFrame implements Views{
         this.setTitle("Login");
         this.setSize(640,480);
         this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         //GridLayout grid = new GridLayout(3, 2);
         //grid.setVgap(30);
