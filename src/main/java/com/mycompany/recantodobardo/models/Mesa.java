@@ -10,72 +10,44 @@ package com.mycompany.recantodobardo.models;
    // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Mesa {
     
-    private int idMesa;
-    private Reserva reserva;
+    private String idMesa;
     private int assentos;
     private boolean disponibilidade;
     
-    public Mesa(int id, Reserva reserva, int assentos, boolean disponibilidade){
+    public Mesa(String id, int assentos, boolean disponibilidade){
         this.idMesa = id;
-        this.reserva = reserva;
         this.assentos = assentos;
         this.disponibilidade = disponibilidade;
     }
 
-    /**
-     * @return the idMesa
-     */
-    public Integer getIdMesa() {
+    public String getIdMesa() {
         return idMesa;
     }
 
-    /**
-     * @param idMesa the idMesa to set
-     */
-    public void setIdMesa(Integer idMesa) {
+    public void setIdMesa(String idMesa) {
         this.idMesa = idMesa;
     }
 
-    /**
-     * @return the reserva
-     */
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    /**
-     * @param reserva the reserva to set
-     */
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
-    }
-
-    /**
-     * @return the assentos
-     */
     public Integer getAssentos() {
         return assentos;
     }
 
-    /**
-     * @param assentos the assentos to set
-     */
+
     public void setAssentos(Integer assentos) {
         this.assentos = assentos;
     }
 
-    /**
-     * @return the disponibilidade
-     */
     public Boolean getDisponibilidade() {
         return disponibilidade;
     }
 
-    /**
-     * @param disponibilidade the disponibilidade to set
-     */
     public void setDisponibilidade(Boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
+    }
+    
+    @Override
+    public String toString() {
+        return this.getIdMesa();
     }
     
 }

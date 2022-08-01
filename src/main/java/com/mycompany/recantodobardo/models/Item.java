@@ -112,8 +112,10 @@ public class Item {
         this.disponibilidade = disponibilidade;
     }
     
-    public void cadastrarItem(Item item){
-        
+    
+    @Override
+    public String toString() {
+        return this.getNome();
     }
     
 }
