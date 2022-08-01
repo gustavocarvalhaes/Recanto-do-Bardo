@@ -4,10 +4,14 @@
  */
 package com.mycompany.recantodobardo.view;
 
+import com.mycompany.recantodobardo.controllers.LoginController;
 import com.mycompany.recantodobardo.models.Administrador;
 import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.util.ClienteToJson;
+import com.mycompany.recantodobardo.util.LerArquivo;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -54,6 +58,7 @@ public class TelaLogin extends JFrame implements Views{
         this.setTitle("Login");
         this.setSize(640,480);
         this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         //GridLayout grid = new GridLayout(3, 2);
         //grid.setVgap(30);
@@ -97,7 +102,8 @@ public class TelaLogin extends JFrame implements Views{
         //button
         this.setButton_login(new JButton("Ok"));
         espaco1.add(this.button_login);
-       
+        this.button_login.addActionListener(new LoginController(this));
+        
     }
     
     public JTextField getText_field_email() {

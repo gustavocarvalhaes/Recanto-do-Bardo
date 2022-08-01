@@ -6,6 +6,8 @@ package com.mycompany.recantodobardo.controllers;
 import java.awt.event.ActionListener;
 import com.mycompany.recantodobardo.models.Administrador;
 import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.view.MenuAdm;
+import com.mycompany.recantodobardo.view.MenuClientes;
 import com.mycompany.recantodobardo.view.TelaLogin;
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -36,28 +38,26 @@ public class LoginController implements ActionListener {
         String senha = tela.getText_field_senha().getText();
 
         List<Cliente> clientList = (List<Cliente>) tela.getListaCliente();
-        DefaultListModel<Administrador> admList = (DefaultListModel<Administrador>) tela.getListaAdministrador().getModel();
 
         for(Cliente cliente : clientList) {
             if (cliente.getEmail().equals(email)) {
                 if (cliente.getSenha().equals(senha)) {
-                    this.tela.setVisible(false);// 
-                    new Login(cliente);//preciso rever oq isso deveria fazer
+                    new MenuClientes();
+                    this.tela.dispose();
                 } else {
-                    JOptionPane.showMessageDialog(tela.getFrame(), "Senha do cliente incorreta!");
+                    JOptionPane.showMessageDialog(null, "Senha do cliente incorreta!");
                 }
             }
         }
-
-        for (Administrador adminList : adm) {// refazer isso aqui, como vai ser só um adm, eu posso 
-            if (admList.getEmail().equals(email)) {// fazer uma verificação simples de um login genérico
-                if (adm.getPassword().equals(password)) {// tipo verificar se o email passado é admin@gmail.com
-                    this.tela.getFrame().setVisible(false);//e a senha é admin123
-                    new Login(admList);
-                } else {
-                    JOptionPane.showMessageDialog(tela.getFrame(), "Senha do administrador incorreta!");
-                }
-            }
+ 
+       // if (email == "adm@gmail.com") {// fazer uma verificação simples de um login genérico
+        //    if (senha == "adm123") {// tipo verificar se o email passado é admin@gmail.com
+        //        this.tela.setVisible(false);//e a senha é admin123
+        //        new MenuAdm();
+        //    } else {
+        //        JOptionPane.showMessageDialog(null, "Senha do administrador incorreta!");
+        //    }
+      ///  }
         }
     }
-}
+

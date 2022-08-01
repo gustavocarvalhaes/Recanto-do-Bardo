@@ -39,7 +39,7 @@ public class ViewMesas extends JFrame implements Views{
     @Override
     public void inicializar() {
         this.setSize(500, 300);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
