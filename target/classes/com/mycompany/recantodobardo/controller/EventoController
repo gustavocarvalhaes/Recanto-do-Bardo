@@ -1,0 +1,111 @@
+package com.mycompany.recantodobardo.controller;
+
+import com.mycompany.recantodobardo.models.Item;
+import com.mycompany.recantodobardo.models.Mesa;
+import com.mycompany.recantodobardo.models.Reserva;
+
+import com.mycompany.recantodobardo.util.Arquivo;
+import com.mycompany.recantodobardo.util.JSON;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
+import javax.swing.JOptionPane;
+
+public class EventoController implements EventosListener {
+
+    @Override
+    public void JanelaAberta (EventoController x) {
+
+        try 
+        {
+            // Ler ItemData (arquivo JSON de Itens):
+            String readItemFile = Arquivo.lerArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ItemData.json");
+            Screen.setItemList(JSON.toItens(readItemFile));
+
+            // Ler MesaData (arquivo JSON de Mesas):
+            String readMesaFile = Arquivo.lerArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "MesaData.json");
+            Screen.setMesaList(JSON.toMesas(readMesaFile));
+
+            // Ler ReservaData (arquivo JSON de Reservas):
+            String readReservaFile = Arquivo.lerArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ReservaData.json");
+            Screen.setReservaList(JSON.toReservas(readReservaFile));
+
+            this.screen.getFrame().repaint();
+
+        } 
+        catch (FileNotFoundException e) 
+        {
+            JOptionPane.showMessageDialog(this.screen.getFrame(), "Não foi possível acessar essas informações!");
+        } 
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(this.screen.getFrame(), "Houve um erro na leitura das informações!");
+        }
+    }
+
+    @Override
+    public void JanelaFechada (EventoController x) {
+        try 
+        {
+            // Salvando a lista (List) de Itens no ItemData.json:
+            String itensToJSON = JSON.toJSON(Screen.getItemList());
+            System.out.println(itensToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ItemData.json", itensToJSON);
+
+            
+            // Salvando a lista (List) de Mesas no MesaData.json:
+            String mesasToJSON = JSON.toJSON(Screen.getMesaList());
+            System.out.println(mesasToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "MesaData.json", mesasToJSON);
+            
+
+            // Salvando a lista (List) de Reservas no ReservaData.json:
+            String reservasToJSON = JSON.toJSON(Screen.getReservaList());
+            System.out.println(reservasToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ReservaData.json", reservasToJSON);
+
+        } 
+        catch (Exception e) 
+        {
+            JOptionPane.showMessageDialog(this.screen.getFrame(), "Os dados não puderam ser salvos!");
+        }
+    }
+
+    public static void saveFile() {
+            try {
+
+            // Salvando a lista de itens:
+            String itensToJSON = JSON.toJSON(Screen.getItemList());
+            System.out.println(itensToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ItemData.json", itensToJSON);
+
+            
+            // Salvando a lista de mesas:
+            String mesasToJSON = JSON.toJSON(Screen.getMesaList());
+            System.out.println(mesasToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "MesaData.json", mesasToJSON);
+            
+
+            // Salvando a lista de reservas:
+            String reservasToJSON = JSON.toJSON(Screen.getReservaList());
+            System.out.println(reservasToJSON);
+            Arquivo.escreverArquivo("src/main/java/com/mycompany/recantodobardo/data/" + "ReservaData.json", reservasToJSON);
+
+        } 
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Os dados não puderam ser salvos!");
+        }
+
+    }
+
+
+
+    
+}

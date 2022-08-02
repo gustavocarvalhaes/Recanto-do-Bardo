@@ -1,39 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+  // Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+  // Gabriella Cruz e Silva (gabriellac2002) 202165512B
+  // Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+
 package com.mycompany.recantodobardo.models;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
- //   Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-  //  Gabriella Cruz e Silva (gabriellac2002) 202165512B
-  //  Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-   // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
 public class Reserva {
     
-    private int idReserva;
     private Cliente cliente; 
-    private ArrayList<Item> itens = new ArrayList<Item>(); //colocamos um arrayList pois uma reserva pode ter mais de um item
+    private List<Item> itens = new ArrayList<>();
+    private Calendar dia;
+    private Calendar horaInicio;
+    private Calendar horaFim;
+    private boolean fimReserva = false;
     private float total;
     
-    public Reserva(int id, Cliente cliente, float total){
-        this.idReserva = id;
+    public Reserva(Cliente cliente, List<Item> itens, Calendar dia, Calendar horaInicio, Calendar horaFim) {
         this.cliente = cliente;
-        this.total = total;
-    }
-
-    /**
-     * @return the idReserva
-     */
-    public int getIdReserva() {
-        return idReserva;
-    }
-
-    /**
-     * @param idReserva the idReserva to set
-     */
-    public void setIdReserva(Integer idReserva) {
-        this.idReserva = idReserva;
+        this.itens = itens;
+        this.dia = dia;
+        this.horaInicio = horaInicio;
+        this.horaFim = horaFim;
     }
 
     /**
@@ -53,14 +43,14 @@ public class Reserva {
     /**
      * @return the itens
      */
-    public ArrayList<Item> getItens() {
+    public List<Item> getItens() {
         return itens;
     }
 
     /**
      * @param itens the itens to set
      */
-    public void setItens(ArrayList<Item> itens) {
+    public void setItens(List<Item> itens) {
         this.itens = itens;
     }
 
@@ -76,6 +66,10 @@ public class Reserva {
      */
     public void setTotal(Float total) {
         this.total = total;
+    }
+    
+    public void cadastrarReserva(Reserva reserva){
+        
     }
     
 }

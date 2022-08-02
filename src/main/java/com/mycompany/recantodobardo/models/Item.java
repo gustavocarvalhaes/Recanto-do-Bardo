@@ -1,45 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
+  // Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+  // Gabriella Cruz e Silva (gabriellac2002) 202165512B
+  // Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+
 package com.mycompany.recantodobardo.models;
 
-
-  //  Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-  //  Gabriella Cruz e Silva (gabriellac2002) 202165512B
-  //  Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-   // Pedro Souza Pinheiro da Silva Araujo (pedro123063) 202165560C 
- 
 public class Item {
     
-    private int idItem;
     private String nome;
-    private String tipo;
     private int quantidade;
     private float precoHora;
     private boolean disponibilidade;
 
-    public Item(int i, String nome, String tipo, int quantidade, float precoHora, boolean disponibilidade) {
-       this.idItem = i;
+    public Item(String nome, int quantidade, float precoHora, boolean disponibilidade) {
        this.nome = nome;
-       this.tipo = tipo;
        this.quantidade = quantidade;
        this.precoHora = precoHora;
        this.disponibilidade = disponibilidade;
-    }
-
-    /**
-     * @return the idItem
-     */
-    public Integer getIdItem() {
-        return idItem;
-    }
-
-    /**
-     * @param idItem the idItem to set
-     */
-    public void setIdItem(Integer idItem) {
-        this.idItem = idItem;
     }
 
     /**
@@ -54,20 +31,6 @@ public class Item {
      */
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    /**
-     * @return the tipo
-     */
-    public String getTipo() {
-        return tipo;
-    }
-
-    /**
-     * @param tipo the tipo to set
-     */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     /**
@@ -102,7 +65,12 @@ public class Item {
      * @return the disponibilidade
      */
     public Boolean getDisponibilidade() {
-        return disponibilidade;
+        if (this.quantidade > 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**
@@ -111,9 +79,15 @@ public class Item {
     public void setDisponibilidade(Boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
-    
-    public void cadastrarItem(Item item){
-        
+
+    public String convertQuantidade()
+    {
+        return Integer.toString(getQuantidade());
+    }
+
+    public String convertPrecoHora()
+    {
+        return Float.toString(getPrecoHora());
     }
     
 }
