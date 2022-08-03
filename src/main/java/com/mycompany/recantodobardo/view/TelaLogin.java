@@ -7,7 +7,7 @@ package com.mycompany.recantodobardo.view;
 import com.mycompany.recantodobardo.controllers.LoginController;
 import com.mycompany.recantodobardo.models.Administrador;
 import com.mycompany.recantodobardo.models.Cliente;
-import com.mycompany.recantodobardo.util.UsuarioToJson;
+import com.mycompany.recantodobardo.util.ClienteToJson;
 import com.mycompany.recantodobardo.util.LerArquivo;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;

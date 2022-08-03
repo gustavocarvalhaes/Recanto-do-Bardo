@@ -90,7 +90,7 @@ public class ViewClientes extends JFrame implements Views{
         this.addWindowListener(new AcaoClienteController(this));
         
         JPanel jpClientes = new JPanel();
-        jpClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));
+        jpClientes.setBorder(BorderFactory.createTitledBorder("Usuários"));
         jpClientes.setLayout(new BorderLayout());
         jpClientes.setPreferredSize(new Dimension(200, 300));
         DefaultListModel<Cliente> model = new DefaultListModel<>();
