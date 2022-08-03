@@ -7,6 +7,9 @@ package com.mycompany.recantodobardo.controller.ReservaController;
 
 import com.mycompany.recantodobardo.view.ViewReservas;
 import com.mycompany.recantodobardo.models.Reserva;
+import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.models.Item;
+import com.mycompany.recantodobardo.models.Mesa;
 
 import java.awt.event.ActionEvent;
 import java.util.List;
@@ -28,7 +31,11 @@ public class EditaReserva implements ActionListener
     {
         DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) this.view.getLista().getModel();
         Reserva reserva = model.getElementAt(view.getLastIndex());
-        reserva.setNome(view.getText_field_().getText());
+        reserva.setCliente((Cliente) view.getCbCientes().getSelectedItem());
+        reserva.setItem((Item) view.getCbItens().getSelectedItem());
+        reserva.setMesa((Mesa) view.getCbMesas().getSelectedItem());
+        reserva.setData(view.getText_field_data().getText());
+        reserva.setHora(view.getText_field_hora().getText());
 
         view.repaint();
     }

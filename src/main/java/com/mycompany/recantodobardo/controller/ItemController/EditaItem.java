@@ -28,7 +28,6 @@ public class EditaItem implements ActionListener
         DefaultListModel<Item> model = (DefaultListModel<Item>) this.view.getLista().getModel();
         Item item = model.getElementAt(view.getLastIndex());
         item.setNome(view.getText_field_nome().getText());
-        item.setQuantidade(Integer.parseInt(view.getText_field_quantidade().getText()));
         item.setPrecoHora(Float.parseFloat(view.getText_field_precoHora().getText()));
 
         view.repaint();

@@ -8,15 +8,11 @@ package com.mycompany.recantodobardo.models;
 public class Item {
     
     private String nome;
-    private int quantidade;
     private float precoHora;
-    private boolean disponibilidade;
 
-    public Item(String nome, int quantidade, float precoHora, boolean disponibilidade) {
+    public Item(String nome, float precoHora) {
        this.nome = nome;
-       this.quantidade = quantidade;
        this.precoHora = precoHora;
-       this.disponibilidade = disponibilidade;
     }
 
     /**
@@ -34,20 +30,6 @@ public class Item {
     }
 
     /**
-     * @return the quantidade
-     */
-    public Integer getQuantidade() {
-        return quantidade;
-    }
-
-    /**
-     * @param quantidade the quantidade to set
-     */
-    public void setQuantidade(Integer quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    /**
      * @return the precoHora
      */
     public Float getPrecoHora() {
@@ -59,30 +41,6 @@ public class Item {
      */
     public void setPrecoHora(Float precoHora) {
         this.precoHora = precoHora;
-    }
-
-    /**
-     * @return the disponibilidade
-     */
-    public Boolean getDisponibilidade() {
-        if (this.quantidade > 0) {
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
-    /**
-     * @param disponibilidade the disponibilidade to set
-     */
-    public void setDisponibilidade(Boolean disponibilidade) {
-        this.disponibilidade = disponibilidade;
-    }
-
-    public String convertQuantidade()
-    {
-        return Integer.toString(getQuantidade());
     }
 
     public String convertPrecoHora()

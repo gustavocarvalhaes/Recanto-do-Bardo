@@ -28,15 +28,12 @@ public class AdicionaItem implements ActionListener
     { 
         DefaultListModel<Item> model = (DefaultListModel<Item>) view.getLista().getModel();
 
-        int quantidade = Integer.parseInt(view.getText_field_quantidade().getText());
         float precoHora = Float.parseFloat(view.getText_field_precoHora().getText());
 
         model.addElement(
                 new Item(
                         view.getText_field_nome().getText(),
-                        quantidade,
-                        precoHora,
-                        true));
+                        precoHora));
 
         view.getLista().setModel(model);
         view.repaint();

@@ -11,65 +11,65 @@ import java.util.List;
 public class Reserva {
     
     private Cliente cliente; 
-    private List<Item> itens = new ArrayList<>();
-    private Calendar dia;
-    private Calendar horaInicio;
-    private Calendar horaFim;
-    private boolean fimReserva = false;
-    private float total;
-    
-    public Reserva(Cliente cliente, List<Item> itens, Calendar dia, Calendar horaInicio, Calendar horaFim) {
-        this.cliente = cliente;
-        this.itens = itens;
-        this.dia = dia;
-        this.horaInicio = horaInicio;
-        this.horaFim = horaFim;
+    private Item item;
+    private Mesa mesa;
+    private String data;
+    private String hora;
+
+    // public Reserva(Cliente cliente, List<Item> itens, Mesa mesa, String data, String hora) {
+    //     this.cliente = cliente;
+    //     this.itens = itens;
+    //     this.data = data;
+    //     this.hora = hora;
+    // }
+
+    public Reserva(Object selectedItem, Object selectedItem2, Object selectedItem3, String text, String text2) {
+
+        this.cliente = (Cliente) selectedItem;
+        this.item = (Item) selectedItem2;
+        this.mesa = (Mesa) selectedItem3;
+        this.data = text;
+        this.hora = text2;
     }
 
-    /**
-     * @return the cliente
-     */
     public Cliente getCliente() {
         return cliente;
     }
 
-    /**
-     * @param cliente the cliente to set
-     */
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 
-    /**
-     * @return the itens
-     */
-    public List<Item> getItens() {
-        return itens;
+    public Item getItem() {
+        return item;
     }
 
-    /**
-     * @param itens the itens to set
-     */
-    public void setItens(List<Item> itens) {
-        this.itens = itens;
+    public void setItem(Item item) {
+        this.item = item;
     }
 
-    /**
-     * @return the total
-     */
-    public float getTotal() {
-        return total;
+    public Mesa getMesa() {
+        return mesa;
     }
 
-    /**
-     * @param total the total to set
-     */
-    public void setTotal(Float total) {
-        this.total = total;
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
     }
-    
-    public void cadastrarReserva(Reserva reserva){
-        
+
+    public String getData() {
+        return data;
     }
-    
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
+    }
+
 }

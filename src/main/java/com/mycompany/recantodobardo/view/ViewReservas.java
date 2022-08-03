@@ -43,10 +43,70 @@
       private JTextField text_field_data;
       private JTextField text_field_hora;
       private JPanel principal;
-      
+      private int lastIndex;
+    
       public ViewReservas(){
           inicializar();
+          this.lastIndex = 0;
       }
+
+      public JList<Reserva> getLista() {
+        return lista;
+      }
+
+      public void setLista(JList<Reserva> lista) {
+          this.lista = lista;
+      }
+
+      public JTextField getText_field_data() {
+        return text_field_data;
+      }
+
+      public void setText_field_data(JTextField text_field_data) {
+          this.text_field_data = text_field_data;
+      }
+
+      public JTextField getText_field_hora() {
+        return text_field_hora;
+      }
+
+      public void setText_field_hora(JTextField text_field_hora) {
+          this.text_field_hora = text_field_hora;
+      }
+
+      public JComboBox getCbCientes() {
+        return cbCientes;
+      }
+
+      public void setCbCientes(JComboBox cbCientes) {
+          this.cbCientes = cbCientes;
+      }
+
+      public JComboBox getCbItens() {
+          return cbItens;
+      }
+
+      public void setCbItens(JComboBox cbItens) {
+          this.cbItens = cbItens;
+      }
+
+      public JComboBox getCbMesas() {
+          return cbMesas;
+      }
+
+      public void setCbMesas(JComboBox cbMesas) {
+          this.cbMesas = cbMesas;
+      }
+
+      public void setLastIndex(int lastIndex){
+        this.lastIndex = lastIndex;
+      }
+      
+      public int getLastIndex() {
+          return lastIndex;
+      }
+
+
       
       
       @Override
@@ -83,12 +143,6 @@
           jpFormulario.add(new JLabel("Cliente:"));
           
           
-          //remover
-          listClientes = new ArrayList<>();
-          listClientes.add(new Cliente(1, "Gabi", "5551516", "22511"));
-          listClientes.add(new Cliente(1, "Ans", "5551516", "22511"));
-          
-          
           DefaultComboBoxModel<Cliente> modelCliente = new DefaultComboBoxModel<>();
           modelCliente.addAll(listClientes);
           this.cbCientes = new JComboBox(modelCliente);
@@ -96,10 +150,6 @@
           
           jpFormulario.add(new JLabel("Item:"));
           
-          //remover
-          listItens = new ArrayList<>();
-          listItens.add(new Item(2,"Uno", "baralho", 5, 15, true));
-          listItens.add(new Item(3,"Jogo da vida", "tabuleiro", 5, 15, true));
           
           DefaultComboBoxModel<Item> modelItem = new DefaultComboBoxModel<>();
           modelItem.addAll(listItens);

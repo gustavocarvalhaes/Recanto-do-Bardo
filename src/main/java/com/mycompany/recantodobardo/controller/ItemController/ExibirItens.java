@@ -29,7 +29,6 @@ public class ExibirItens implements ListSelectionListener
             
             Item elementAt = view.getLista().getModel().getElementAt(firstIndex);
             view.getText_field_nome().setText(elementAt.getNome());
-            view.getText_field_quantidade().setText(elementAt.convertQuantidade());
             view.getText_field_precoHora().setText(elementAt.convertPrecoHora());
             
             view.setLastIndex(firstIndex);

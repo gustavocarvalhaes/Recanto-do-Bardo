@@ -33,7 +33,6 @@ public class ViewItens extends JFrame implements Views
 {
     
     private JTextField text_field_nome;
-    private JTextField text_field_quantidade;
     private JTextField text_field_precoHora;
     private JPanel principal;
     private JList<Item> lista;
@@ -60,14 +59,6 @@ public class ViewItens extends JFrame implements Views
 
     public void setText_field_nome(JTextField text_field_nome) {
         this.text_field_nome = text_field_nome;
-    }
-
-    public JTextField getText_field_quantidade() {
-        return text_field_quantidade;
-    }
-
-    public void setText_field_quantidade(JTextField text_field_quantidade) {
-        this.text_field_quantidade = text_field_quantidade;
     }
 
     public JTextField getText_field_precoHora() {
@@ -115,10 +106,6 @@ public class ViewItens extends JFrame implements Views
         jpFormulario.add(new JLabel("Nome:"));
         text_field_nome = new JTextField(size);
         jpFormulario.add(text_field_nome);
-
-        jpFormulario.add(new JLabel("Quantidade:"));
-        text_field_quantidade = new JTextField(size);
-        jpFormulario.add(text_field_quantidade);
 
         jpFormulario.add(new JLabel("Preço/Hora:"));
         text_field_precoHora = new JTextField(size);
