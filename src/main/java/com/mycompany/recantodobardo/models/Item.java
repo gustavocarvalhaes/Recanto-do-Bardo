@@ -47,5 +47,10 @@ public class Item {
     {
         return Float.toString(getPrecoHora());
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
     
 }

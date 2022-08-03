@@ -9,6 +9,7 @@ import com.mycompany.recantodobardo.controller.ItemController.AdicionaItem;
 import com.mycompany.recantodobardo.controller.ItemController.RemoveItem;
 import com.mycompany.recantodobardo.controller.ItemController.EditaItem;
 import com.mycompany.recantodobardo.controller.ItemController.ExibirItens;
+import com.mycompany.recantodobardo.controller.ItemController.ItemController;
 import com.mycompany.recantodobardo.models.Item;
 
 import java.awt.BorderLayout;
@@ -81,6 +82,7 @@ public class ViewItens extends JFrame implements Views
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
+        this.addWindowListener(new ItemController(this));
         
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Itens"));

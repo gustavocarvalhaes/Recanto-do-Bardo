@@ -23,13 +23,17 @@ public class ExibirReservas implements ListSelectionListener
     
      @Override
     public void valueChanged(ListSelectionEvent e) {
-        int firstIndex = view.getLista().getSelectedIndex();
+        int firstIndex = view.getListReserva().getSelectedIndex();
 
         if (firstIndex != -1) 
         {
             
-            Reserva elementAt = view.getLista().getModel().getElementAt(firstIndex);
-            view.getText_field_().setText(elementAt.get());
+            Reserva elementAt = view.getListReserva().getModel().getElementAt(firstIndex);
+            view.getCbCientes().getSelectedItem().toString();
+            view.getCbItens().getSelectedItem().toString();
+            view.getCbMesas().getSelectedItem().toString();
+            view.getText_field_data().setText(elementAt.getData());
+            view.getText_field_hora().setText(elementAt.getHora());
             
             view.setLastIndex(firstIndex);
             

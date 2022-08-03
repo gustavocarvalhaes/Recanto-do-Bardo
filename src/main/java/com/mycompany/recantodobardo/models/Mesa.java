@@ -46,5 +46,12 @@ public class Mesa {
     {
         return Integer.toString(getAssentos());
     }
+
+    @Override
+    public String toString() {
+        return idMesa;
+    }
+    
+    
     
 }

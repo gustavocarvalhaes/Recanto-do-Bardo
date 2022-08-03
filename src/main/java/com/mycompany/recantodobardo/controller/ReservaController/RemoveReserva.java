@@ -18,7 +18,7 @@ public class RemoveReserva implements ActionListener
     
     ViewReservas view;
 
-    public RemoveReserva(ViewItens view) 
+    public RemoveReserva(ViewReservas view) 
     {
         this.view = view;
     }
@@ -27,13 +27,13 @@ public class RemoveReserva implements ActionListener
     public void actionPerformed(ActionEvent e) 
     { 
 
-        int selectedIndex = view.getLista().getSelectedIndex();
+        int selectedIndex = view.getListReserva().getSelectedIndex();
 
         if (selectedIndex != -1) 
         {
-            DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) view.getLista().getModel();
+            DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) view.getListReserva().getModel();
             model.removeElementAt(selectedIndex);
-            view.getLista().setModel(model);
+            view.getListReserva().setModel(model);
             view.repaint();
         }
 

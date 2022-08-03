@@ -29,7 +29,7 @@ public class EditaReserva implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     {
-        DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) this.view.getLista().getModel();
+        DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) this.view.getListReserva().getModel();
         Reserva reserva = model.getElementAt(view.getLastIndex());
         reserva.setCliente((Cliente) view.getCbCientes().getSelectedItem());
         reserva.setItem((Item) view.getCbItens().getSelectedItem());

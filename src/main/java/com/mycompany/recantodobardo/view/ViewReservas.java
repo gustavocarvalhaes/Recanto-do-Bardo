@@ -9,9 +9,24 @@
   import com.mycompany.recantodobardo.models.Item;
   import com.mycompany.recantodobardo.models.Mesa;
   import com.mycompany.recantodobardo.models.Reserva;
+import com.mycompany.recantodobardo.util.Arquivo;
+import com.mycompany.recantodobardo.util.ClienteToJson;
+import com.mycompany.recantodobardo.util.ItemToJson;
+import com.mycompany.recantodobardo.util.MesaToJson;
+import com.mycompany.recantodobardo.controller.ReservaController.ReservaController;
+  import com.mycompany.recantodobardo.controller.ReservaController.AdicionaReserva;
+  import com.mycompany.recantodobardo.controller.ReservaController.EditaReserva;
+  import com.mycompany.recantodobardo.controller.ReservaController.ExibirReservas;
+  import com.mycompany.recantodobardo.controller.ReservaController.RemoveReserva;
+  import com.mycompany.recantodobardo.controller.ItemController.ItemController;
+  import com.mycompany.recantodobardo.controller.MesaController.MesaController;
+  import com.mycompany.recantodobardo.controller.UserController.ClienteController;
+ 
+
   import java.awt.BorderLayout;
   import java.awt.Dimension;
-  import java.util.List;
+import java.io.FileNotFoundException;
+import java.util.List;
   import java.util.ArrayList;
   import javax.swing.BorderFactory;
   import javax.swing.DefaultListModel;
@@ -24,8 +39,7 @@
   import javax.swing.JScrollPane;
   import javax.swing.JTextField;
   import javax.swing.ListSelectionModel;
-  import java.util.ArrayList;
-  import java.util.Arrays;
+ 
   import javax.swing.DefaultComboBoxModel;
   
   /**
@@ -33,29 +47,49 @@
    * @author cdcru
    */
   public class ViewReservas extends JFrame implements Views{
-      private JComboBox cbCientes;
-      private JComboBox cbItens ;
-      private JComboBox cbMesas;
+      private JComboBox<Cliente> cbCientes;
+      private JComboBox<Item> cbItens ;
+      private JComboBox<Mesa> cbMesas;
       private List<Cliente> listClientes;
       private List<Item> listItens;
-      private List<Mesa> listMesa;
-      private JList<Reserva> lista;
+      private List<Mesa> listMesas;
+      private JList<Reserva> listReserva;
       private JTextField text_field_data;
       private JTextField text_field_hora;
       private JPanel principal;
       private int lastIndex;
-    
-      public ViewReservas(){
-          inicializar();
-          this.lastIndex = 0;
+      
+      
+      public List<Item> getListItem() {
+        return listItens;
       }
 
-      public JList<Reserva> getLista() {
-        return lista;
+      public void setListItem(List<Item> listItens) {
+          this.listItens = listItens;
       }
 
-      public void setLista(JList<Reserva> lista) {
-          this.lista = lista;
+      public List<Mesa> getListMesa() {
+        return listMesas;
+      }
+
+      public void setListMesa(List<Mesa> listMesas) {
+          this.listMesas = listMesas;
+      }
+
+      public List<Cliente> getListCliente() {
+        return listClientes;
+      }
+
+      public void setListCliente(List<Cliente> listClientes) {
+          this.listClientes = listClientes;
+      }
+
+      public JList<Reserva> getListReserva() {
+        return listReserva;
+      }
+
+      public void setLista(JList<Reserva> listReserva) {
+          this.listReserva = listReserva;
       }
 
       public JTextField getText_field_data() {
@@ -74,27 +108,27 @@
           this.text_field_hora = text_field_hora;
       }
 
-      public JComboBox getCbCientes() {
+      public JComboBox<Cliente> getCbCientes() {
         return cbCientes;
       }
 
-      public void setCbCientes(JComboBox cbCientes) {
+      public void setCbCientes(JComboBox<Cliente> cbCientes) {
           this.cbCientes = cbCientes;
       }
 
-      public JComboBox getCbItens() {
+      public JComboBox<Item> getCbItens() {
           return cbItens;
       }
 
-      public void setCbItens(JComboBox cbItens) {
+      public void setCbItens(JComboBox<Item> cbItens) {
           this.cbItens = cbItens;
       }
 
-      public JComboBox getCbMesas() {
+      public JComboBox<Mesa> getCbMesas() {
           return cbMesas;
       }
 
-      public void setCbMesas(JComboBox cbMesas) {
+      public void setCbMesas(JComboBox<Mesa> cbMesas) {
           this.cbMesas = cbMesas;
       }
 
@@ -106,16 +140,55 @@
           return lastIndex;
       }
 
+      public ViewReservas(){
+         this.listClientes = new ArrayList<>();
+        // this.listClientes.add(new Cliente("ddd", "dsdsds", "dsdsds", false));
+        this.lastIndex = 0;
+        inicializar();
+      }
+
 
       
       
       @Override
       public void inicializar(){
-        this.setSize(500, 300);
+
+          try 
+          {
+              String lerArquivo = Arquivo.lerArquivo("data/UserData.json");
+              List<Cliente> clientes = ClienteToJson.listaClientes(lerArquivo);
+              setListCliente(clientes);
+          } 
+          catch (FileNotFoundException ex) 
+          {
+          }
+
+          try 
+          {
+              String lerArquivo = Arquivo.lerArquivo("data/ItemData.json");
+              List<Item> itens = ItemToJson.listaItens(lerArquivo);
+              setListItem(itens);
+          } 
+          catch (FileNotFoundException ex) 
+          {
+          }
+
+          try 
+          {
+              String lerArquivo = Arquivo.lerArquivo("data/MesaData.json");
+              List<Mesa> mesas = MesaToJson.listaMesas(lerArquivo);
+              setListMesa(mesas);
+          } 
+          catch (FileNotFoundException ex) 
+          {
+          }
+          
+          this.setSize(500, 300);
           this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
   
           this.principal = new JPanel();
           this.principal.setLayout(new BorderLayout());
+          this.addWindowListener(new ReservaController(this));
           
           JPanel jpClientes = new JPanel();
           jpClientes.setBorder(BorderFactory.createTitledBorder("Reservas"));
@@ -125,11 +198,11 @@
           DefaultListModel<Reserva> model = new DefaultListModel<>();
   
   
-          lista = new JList<>(model);
-          lista.setVisible(true);
-          lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-          //lista.addListSelectionListener(new TratarLista(this));
-          jpClientes.add(new JScrollPane(lista), BorderLayout.CENTER);
+          listReserva = new JList<>(model);
+          listReserva.setVisible(true);
+          listReserva.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+          listReserva.addListSelectionListener(new ExibirReservas(this));
+          jpClientes.add(new JScrollPane(listReserva), BorderLayout.CENTER);
   
   
           principal.add(jpClientes, BorderLayout.WEST);
@@ -145,7 +218,7 @@
           
           DefaultComboBoxModel<Cliente> modelCliente = new DefaultComboBoxModel<>();
           modelCliente.addAll(listClientes);
-          this.cbCientes = new JComboBox(modelCliente);
+          this.cbCientes = new JComboBox<>(modelCliente);
           jpFormulario.add(this.cbCientes);
           
           jpFormulario.add(new JLabel("Item:"));
@@ -153,19 +226,19 @@
           
           DefaultComboBoxModel<Item> modelItem = new DefaultComboBoxModel<>();
           modelItem.addAll(listItens);
-          this.cbItens = new JComboBox(modelItem);
+          this.cbItens = new JComboBox<>(modelItem);
           jpFormulario.add(this.cbItens);
           
           jpFormulario.add(new JLabel("Mesa:"));
           
           //remover
-          listMesa = new ArrayList<>();
-          listMesa.add(new Mesa("5", 5, true));
-          listMesa.add(new Mesa("6", 7, true));
+          // listMesa = new ArrayList<>();
+          // listMesa.add(new Mesa("5", 5, true));
+          // listMesa.add(new Mesa("6", 7, true));
           
           DefaultComboBoxModel<Mesa> modelMesa = new DefaultComboBoxModel<>();
-          modelMesa.addAll(listMesa);
-          this.cbMesas = new JComboBox(modelMesa);
+          modelMesa.addAll(listMesas);
+          this.cbMesas = new JComboBox<>(modelMesa);
           jpFormulario.add(this.cbMesas);
           
           
@@ -178,16 +251,16 @@
           jpFormulario.add(text_field_hora);
   
           JButton btnAdicionar = new JButton("Adicionar");
-          //btnAdicionar.addActionListener(new SalvarContato(this));
+          btnAdicionar.addActionListener(new AdicionaReserva(this));
           jpFormulario.add(btnAdicionar);
   
           JButton btnRemover = new JButton("Remover");
-         // btnRemover.addActionListener(new RemoverContato(this));
+          btnRemover.addActionListener(new RemoveReserva(this));
           jpFormulario.add(btnRemover);
           
           
           JButton btnEditar = new JButton("Editar");
-         // btnEditar.addActionListener(new EditarContato(this));
+          btnEditar.addActionListener(new EditaReserva(this));
           jpFormulario.add(btnEditar);
           
           principal.add(jpFormulario, BorderLayout.CENTER);
@@ -200,6 +273,6 @@
       
       public static void main(String[] args) {
         ViewReservas tela = new ViewReservas();
-        tela.inicializar();
+        // tela.inicializar();
       }
   }

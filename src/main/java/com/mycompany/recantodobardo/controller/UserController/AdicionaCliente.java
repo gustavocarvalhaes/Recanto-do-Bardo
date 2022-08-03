@@ -7,7 +7,7 @@ package com.mycompany.recantodobardo.controller.UserController;
 
 import com.mycompany.recantodobardo.view.ViewClientes;
 import com.mycompany.recantodobardo.models.Cliente;
-
+import com.mycompany.recantodobardo.models.Usuario;
 import java.awt.event.ActionEvent;
 import java.util.List;
 import javax.swing.DefaultListModel;

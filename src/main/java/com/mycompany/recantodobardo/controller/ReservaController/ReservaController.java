@@ -47,7 +47,7 @@ public class ReservaController implements WindowListener
                 modelo.addElement(reserva);
             }
             
-            view.getLista().setModel(modelo);
+            view.getListReserva().setModel(modelo);
             view.repaint();
             
         } 
@@ -60,7 +60,7 @@ public class ReservaController implements WindowListener
     @Override
     public void windowClosing(WindowEvent e) {
         
-        ListModel<Reserva> model = view.getLista().getModel();
+        ListModel<Reserva> model = view.getListReserva().getModel();
         List<Reserva> reservas = new ArrayList<>();
         
         

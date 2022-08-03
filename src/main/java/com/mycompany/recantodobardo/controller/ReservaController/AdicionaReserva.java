@@ -27,7 +27,7 @@ public class AdicionaReserva implements ActionListener
     @Override
     public void actionPerformed(ActionEvent e) 
     { 
-        DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) view.getLista().getModel();
+        DefaultListModel<Reserva> model = (DefaultListModel<Reserva>) view.getListReserva().getModel();
 
         model.addElement(
                 new Reserva(
@@ -38,7 +38,7 @@ public class AdicionaReserva implements ActionListener
                         view.getText_field_hora().getText()
                         ));
 
-        view.getLista().setModel(model);
+        view.getListReserva().setModel(model);
         view.repaint();
 
     }

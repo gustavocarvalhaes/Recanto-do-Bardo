@@ -40,7 +40,7 @@ public class ClienteController implements WindowListener {
         
         
         try {
-            String lerArquivo = Arquivo.lerArquivo("data/ClientesJson.json");
+            String lerArquivo = Arquivo.lerArquivo("data/UserData.json");
             List<Cliente> clientes = ClienteToJson.listaClientes(lerArquivo);
             
             DefaultListModel<Cliente> modelo = new DefaultListModel<>();
@@ -71,7 +71,7 @@ public class ClienteController implements WindowListener {
         
         System.out.println(toJSON);
         
-        Arquivo.escreverArquivo("data/ClientesJson.json", toJSON);
+        Arquivo.escreverArquivo("data/UserData.json", toJSON);
         
         System.out.println("windowClosing");
         

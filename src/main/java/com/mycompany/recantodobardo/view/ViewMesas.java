@@ -9,6 +9,7 @@ import com.mycompany.recantodobardo.controller.MesaController.AdicionaMesa;
 import com.mycompany.recantodobardo.controller.MesaController.RemoveMesa;
 import com.mycompany.recantodobardo.controller.MesaController.EditaMesa;
 import com.mycompany.recantodobardo.controller.MesaController.ExibirMesas;
+import com.mycompany.recantodobardo.controller.MesaController.MesaController;
 import com.mycompany.recantodobardo.models.Mesa;
 
 import java.awt.BorderLayout;
@@ -78,8 +79,8 @@ public class ViewMesas extends JFrame implements Views
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
+        this.addWindowListener(new MesaController(this));
         
-        //this.addWindowListener(new EventoJanela(this));
         
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Mesas"));
