@@ -73,7 +73,7 @@ public class ReservaController implements WindowListener
         
         System.out.println(toJSON);
         
-        Arquivo.escreverArquivo("data/ItemData.json", toJSON);
+        Arquivo.escreverArquivo("data/ReservaData.json", toJSON);
         
         System.out.println("windowClosing");
         

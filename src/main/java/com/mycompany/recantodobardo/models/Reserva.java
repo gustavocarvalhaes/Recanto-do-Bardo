@@ -72,4 +72,11 @@ public class Reserva {
         this.hora = hora;
     }
 
+    @Override
+    public String toString() {
+        return "Reserva{" + cliente + ", N°: " + mesa + '}';
+    }
+    
+    
+
 }
