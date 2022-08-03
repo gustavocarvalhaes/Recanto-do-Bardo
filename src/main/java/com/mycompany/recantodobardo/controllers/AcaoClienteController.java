@@ -4,6 +4,7 @@ import com.mycompany.recantodobardo.models.Cliente;
 import com.mycompany.recantodobardo.models.Item;
 import com.mycompany.recantodobardo.models.Mesa;
 import com.mycompany.recantodobardo.models.Reserva;
+import com.mycompany.recantodobardo.models.Usuario;
 
 import com.mycompany.recantodobardo.util.LerArquivo;
 import com.mycompany.recantodobardo.util.ClienteToJson;
@@ -20,12 +21,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 import javax.swing.JOptionPane;
 
-public class AcaoController implements WindowListener {
+public class AcaoClienteController implements WindowListener {
 
     
     ViewClientes view;// instancia uma tela para ter acesso aos dados escritos
 
-    public AcaoController(ViewClientes view) {
+    public AcaoClienteController(ViewClientes view) {
         this.view = view;
     }
     
@@ -35,8 +36,9 @@ public class AcaoController implements WindowListener {
         
         
         try {
-            String lerArquivo = LerArquivo.lerArquivo("data/ClientesJson.json");
+            String lerArquivo = LerArquivo.lerArquivo("data/UsuariosJson.json");
             List<Cliente> clientes = ClienteToJson.listaClientes(lerArquivo);
+     
             
             DefaultListModel<Cliente> modelo = new DefaultListModel<>();
             
@@ -66,7 +68,7 @@ public class AcaoController implements WindowListener {
         
         System.out.println(toJSON);
         
-        LerArquivo.escreverArquivo("data/ClientesJson.json", toJSON);
+        LerArquivo.escreverArquivo("data/UsuariosJson.json", toJSON);
         
         System.out.println("windowClosing");
         

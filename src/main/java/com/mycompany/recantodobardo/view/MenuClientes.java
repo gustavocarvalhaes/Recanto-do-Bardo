@@ -4,6 +4,7 @@
  */
 package com.mycompany.recantodobardo.view;
 
+import com.mycompany.recantodobardo.models.Cliente;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Dimension;
@@ -23,9 +24,18 @@ public class MenuClientes extends JFrame implements Views{
     private JPanel principal;
     private JButton cad_clientes;
     private JButton cad_reservas;
+    private Cliente cliente;
     
     public MenuClientes(){
         inicializar();
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
@@ -83,9 +93,9 @@ public class MenuClientes extends JFrame implements Views{
         this.cad_reservas = cad_reservas;
     }
     
-    public static void main(String[] args) {
-        MenuClientes tela = new MenuClientes();
-        tela.inicializar();
-    }
+    //public static void main(String[] args) {
+    //    MenuClientes tela = new MenuClientes(this.cliente);
+    //    tela.inicializar();
+    //}
     
 }

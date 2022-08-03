@@ -3,12 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.recantodobardo.view;
-import com.mycompany.recantodobardo.controllers.AcaoController;
+import com.mycompany.recantodobardo.controllers.AcaoClienteController;
 import com.mycompany.recantodobardo.controllers.AdicionaCliente;
 import com.mycompany.recantodobardo.controllers.EditaCliente;
 import com.mycompany.recantodobardo.controllers.ExibirClientes;
 import com.mycompany.recantodobardo.controllers.RemoveCliente;
 import com.mycompany.recantodobardo.models.Cliente;
+import com.mycompany.recantodobardo.models.Usuario;
 import com.mycompany.recantodobardo.util.LerArquivo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -43,7 +44,7 @@ public class ViewClientes extends JFrame implements Views{
     public void setLista(JList<Cliente> lista) {
         this.lista = lista;
     }
-    
+
     public ViewClientes(){
         this.lastIndex = 0;
     }
@@ -86,7 +87,7 @@ public class ViewClientes extends JFrame implements Views{
 
         this.principal = new JPanel();
         this.principal.setLayout(new BorderLayout());
-        this.addWindowListener(new AcaoController(this));
+        this.addWindowListener(new AcaoClienteController(this));
         
         JPanel jpClientes = new JPanel();
         jpClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));

@@ -7,12 +7,15 @@ package com.mycompany.recantodobardo.view;
 import com.mycompany.recantodobardo.controllers.LoginController;
 import com.mycompany.recantodobardo.models.Administrador;
 import com.mycompany.recantodobardo.models.Cliente;
-import com.mycompany.recantodobardo.util.ClienteToJson;
+import com.mycompany.recantodobardo.util.UsuarioToJson;
 import com.mycompany.recantodobardo.util.LerArquivo;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,26 +32,27 @@ public class TelaLogin extends JFrame implements Views{
     private JTextField text_field_senha;
     private JButton button_login;
     private JPanel formLogin;
-    private JList<Cliente> listaCliente;
-    private JList<Administrador> listaAdministrador;
+    private static List<Cliente> listaCliente;
+   // private JList<Administrador> listaAdministrador;
 
-    public JList<Cliente> getListaCliente() {
+    public List<Cliente> getLista() {
         return listaCliente;
     }
 
-    public void setListaCliente(JList<Cliente> listaCliente) {
+    public void setLista(List<Cliente> listaCliente) {
         this.listaCliente = listaCliente;
     }
 
-    public JList<Administrador> getListaAdministrador() {
-        return listaAdministrador;
-    }
-
-    public void setListaAdministrador(JList<Administrador> listaAdministrador) {
-        this.listaAdministrador = listaAdministrador;
-    }
+//    public JList<Administrador> getListaAdministrador() {
+//        return listaAdministrador;
+//    }
+//
+//    public void setListaAdministrador(JList<Administrador> listaAdministrador) {
+//        this.listaAdministrador = listaAdministrador;
+//    }
     
     public TelaLogin(){
+        
         this.inicializar();
     }
     
@@ -137,7 +141,7 @@ public class TelaLogin extends JFrame implements Views{
     
     public static void main(String[] args) {
         TelaLogin tela = new TelaLogin();
-        tela.inicializar();
+//        tela.inicializar();
     }
     
 }

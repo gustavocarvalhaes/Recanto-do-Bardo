@@ -3,6 +3,7 @@ package com.mycompany.recantodobardo.util;
 import com.mycompany.recantodobardo.models.Cliente;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.mycompany.recantodobardo.models.Usuario;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
