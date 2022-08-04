@@ -9,24 +9,20 @@
   import com.mycompany.recantodobardo.models.Item;
   import com.mycompany.recantodobardo.models.Mesa;
   import com.mycompany.recantodobardo.models.Reserva;
-import com.mycompany.recantodobardo.util.Arquivo;
-import com.mycompany.recantodobardo.util.ClienteToJson;
-import com.mycompany.recantodobardo.util.ItemToJson;
-import com.mycompany.recantodobardo.util.MesaToJson;
-import com.mycompany.recantodobardo.controller.ReservaController.ReservaController;
+  import com.mycompany.recantodobardo.util.Arquivo;
+  import com.mycompany.recantodobardo.util.ClienteToJson;
+  import com.mycompany.recantodobardo.util.ItemToJson;
+  import com.mycompany.recantodobardo.util.MesaToJson;
+  import com.mycompany.recantodobardo.controller.ReservaController.ReservaController;
   import com.mycompany.recantodobardo.controller.ReservaController.AdicionaReserva;
   import com.mycompany.recantodobardo.controller.ReservaController.EditaReserva;
   import com.mycompany.recantodobardo.controller.ReservaController.ExibirReservas;
   import com.mycompany.recantodobardo.controller.ReservaController.RemoveReserva;
-  import com.mycompany.recantodobardo.controller.ItemController.ItemController;
-  import com.mycompany.recantodobardo.controller.MesaController.MesaController;
-  import com.mycompany.recantodobardo.controller.UserController.ClienteController;
  
-
   import java.awt.BorderLayout;
   import java.awt.Dimension;
-import java.io.FileNotFoundException;
-import java.util.List;
+  import java.io.FileNotFoundException;
+  import java.util.List;
   import java.util.ArrayList;
   import javax.swing.BorderFactory;
   import javax.swing.DefaultListModel;
@@ -42,10 +38,6 @@ import java.util.List;
  
   import javax.swing.DefaultComboBoxModel;
   
-  /**
-   *
-   * @author cdcru
-   */
   public class ViewReservas extends JFrame implements Views{
       private JComboBox<Cliente> cbCientes;
       private JComboBox<Item> cbItens ;
@@ -141,8 +133,7 @@ import java.util.List;
       }
 
       public ViewReservas(){
-         this.listClientes = new ArrayList<>();
-        // this.listClientes.add(new Cliente("ddd", "dsdsds", "dsdsds", false));
+        //this.listClientes = new ArrayList<>();
         this.lastIndex = 0;
         inicializar();
       }
@@ -231,11 +222,6 @@ import java.util.List;
           
           jpFormulario.add(new JLabel("Mesa:"));
           
-          //remover
-          // listMesa = new ArrayList<>();
-          // listMesa.add(new Mesa("5", 5, true));
-          // listMesa.add(new Mesa("6", 7, true));
-          
           DefaultComboBoxModel<Mesa> modelMesa = new DefaultComboBoxModel<>();
           modelMesa.addAll(listMesas);
           this.cbMesas = new JComboBox<>(modelMesa);
@@ -249,6 +235,8 @@ import java.util.List;
           jpFormulario.add(new JLabel("Hora:"));
           text_field_hora = new JTextField(size2);
           jpFormulario.add(text_field_hora);
+
+          Reserva x = new Reserva(getCbCientes().getSelectedItem(), getCbItens().getSelectedItem(), getCbMesas().getSelectedItem(), getText_field_data().getText(), getText_field_hora().getText());
   
           JButton btnAdicionar = new JButton("Adicionar");
           btnAdicionar.addActionListener(new AdicionaReserva(this));
