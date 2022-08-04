@@ -31,7 +31,7 @@ public class AdicionaCliente implements ActionListener {
                         view.getText_field_nome().getText(),
                         view.getText_field_email().getText(),
                         view.getText_field_senha().getText(),
-                        false));
+                        view.isAdemir()));
 
         view.getLista().setModel(model);
         view.repaint();

@@ -5,6 +5,7 @@
 package com.mycompany.recantodobardo.controller;
 
 import com.mycompany.recantodobardo.view.MenuAdm;
+import com.mycompany.recantodobardo.view.TelaLogin;
 import com.mycompany.recantodobardo.view.ViewMesas;
 import com.mycompany.recantodobardo.view.ViewReservas;
 import java.awt.event.ActionEvent;
@@ -25,7 +26,7 @@ public class VTAdmReserva implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        new MenuAdm().inicializar();
+        new TelaLogin().inicializar();
         this.tela.dispose();
     }
 }

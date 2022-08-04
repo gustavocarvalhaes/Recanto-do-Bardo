@@ -8,6 +8,7 @@ import com.mycompany.recantodobardo.controller.UserController.AdicionaCliente;
 import com.mycompany.recantodobardo.controller.UserController.EditaCliente;
 import com.mycompany.recantodobardo.controller.UserController.ExibirClientes;
 import com.mycompany.recantodobardo.controller.UserController.RemoveCliente;
+import com.mycompany.recantodobardo.controller.UserController.SelecionaAdm;
 import com.mycompany.recantodobardo.controller.VTAdmCliente;
 import com.mycompany.recantodobardo.controller.VTAdmReserva;
 import com.mycompany.recantodobardo.models.Cliente;
@@ -18,6 +19,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -38,6 +40,16 @@ public class ViewClientes extends JFrame implements Views{
     private JTextField text_field_senha;
     private JPanel principal;
     private JList<Cliente> lista;
+    private JCheckBox isAdm;
+    private boolean ademir;
+
+    public boolean isAdemir() {
+        return ademir;
+    }
+
+    public void setAdemir(boolean ademir) {
+        this.ademir = ademir;
+    }
 
     public JList<Cliente> getLista() {
         return lista;
@@ -137,6 +149,10 @@ public class ViewClientes extends JFrame implements Views{
         JButton btnEditar = new JButton("Editar");
         btnEditar.addActionListener(new EditaCliente(this));
         jpFormulario.add(btnEditar);
+        
+        isAdm = new JCheckBox("Administrador");
+        jpFormulario.add(isAdm);
+        isAdm.addActionListener(new SelecionaAdm (this));
         
         JButton btnVoltar = new JButton("Voltar");
         btnVoltar.addActionListener(new VTAdmCliente(this));

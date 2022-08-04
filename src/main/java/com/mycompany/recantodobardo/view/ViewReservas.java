@@ -248,7 +248,7 @@ public class ViewReservas extends JFrame implements Views {
     jpFormulario.add(btnEditar);
 
     
-    
+//    new VerificaAdm;
     JButton btnVoltar = new JButton("Voltar");
     btnVoltar.addActionListener(new VTAdmReserva(this));
     jpFormulario.add(btnVoltar);

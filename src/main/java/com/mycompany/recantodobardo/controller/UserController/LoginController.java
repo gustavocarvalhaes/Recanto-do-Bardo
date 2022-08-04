@@ -6,21 +6,16 @@
 package com.mycompany.recantodobardo.controller.UserController;
 
 import java.awt.event.ActionListener;
-import com.mycompany.recantodobardo.models.Administrador;
 import com.mycompany.recantodobardo.models.Cliente;
-import com.mycompany.recantodobardo.models.Usuario;
 import com.mycompany.recantodobardo.util.ClienteToJson;
 import com.mycompany.recantodobardo.util.Arquivo;
 import com.mycompany.recantodobardo.view.MenuAdm;
 import com.mycompany.recantodobardo.view.MenuClientes;
 import com.mycompany.recantodobardo.view.TelaLogin;
-import com.mycompany.recantodobardo.view.ViewClientes;
 import java.awt.event.ActionEvent;
 import java.io.FileNotFoundException;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
@@ -51,29 +46,35 @@ public class LoginController implements ActionListener {
     
     public void TemLogin(String email, String senha){
         
+        boolean islogged = false;
         try {
             String lerArquivo = Arquivo.lerArquivo("data/UserData.json");
             List<Cliente> clientes = ClienteToJson.listaClientes(lerArquivo);
-     
+            
             for(Cliente cliente : clientes) {
                 if (cliente.getEmail().equals(email)) {
                     if(cliente.getSenha().equals(senha)){
                         if(!cliente.isAdm()){
+                            islogged = true;
                             new MenuClientes();
                             this.tela.dispose();
                         }
                         if(cliente.isAdm()){
+                            islogged = true;
                             new MenuAdm();
                             this.tela.dispose();
                         }
-                    }
-                    else {
-                    JOptionPane.showMessageDialog(null, "Dados incorretos!");
-                    }
+                    }  
                 } 
-            }   
+                
+            } 
+            if(!islogged){
+                    JOptionPane.showMessageDialog(null, "Dados incorretos!");
+                }
         } catch (FileNotFoundException ex) {
         }
+        
+                   
     }
     
 }
