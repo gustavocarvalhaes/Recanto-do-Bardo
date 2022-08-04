@@ -25,7 +25,7 @@ public class MudarTelasMesas implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        new ViewMesas();
+        new ViewMesas().inicializar();
         this.tela.dispose();
     }
 }

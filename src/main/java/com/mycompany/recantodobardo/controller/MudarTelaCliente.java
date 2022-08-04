@@ -26,7 +26,7 @@ public class MudarTelaCliente implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        new ViewClientes();
+        new ViewClientes().inicializar();
         this.tela.dispose();
     }
 }

@@ -44,7 +44,7 @@ public class TelaLogin extends JFrame implements Views {
     public void inicializar() {
         this.setTitle("Login");
         this.setSize(640, 480);
-        this.setVisible(true);
+        
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.formLogin = new JPanel();
@@ -85,7 +85,8 @@ public class TelaLogin extends JFrame implements Views {
         this.setButton_login(new JButton("Ok"));
         espaco1.add(this.button_login);
         this.button_login.addActionListener(new LoginController(this));
-
+        
+        this.setVisible(true);
     }
 
     public JTextField getText_field_email() {

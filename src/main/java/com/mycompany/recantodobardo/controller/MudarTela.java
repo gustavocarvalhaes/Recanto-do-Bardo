@@ -24,7 +24,7 @@ public class MudarTela implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        new ViewReservas().setVisible(true);
+        new ViewReservas().inicializar();
       
         this.tela.dispose();
     }
