@@ -7,11 +7,15 @@ package com.mycompany.recantodobardo.controller.ReservaController;
 
 import com.mycompany.recantodobardo.view.ViewReservas;
 import com.mycompany.recantodobardo.models.Reserva;
+import com.mycompany.recantodobardo.util.Arquivo;
+import com.mycompany.recantodobardo.util.ReservaToJson;
 
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 import java.awt.event.ActionListener;
 
@@ -35,6 +39,19 @@ public class AdicionaReserva implements ActionListener {
                             view.getCbMesas().getSelectedItem(),
                             view.getText_field_data().getText(),
                             view.getText_field_hora().getText()));
+
+            ListModel<Reserva> res = view.getListReserva().getModel();
+            List<Reserva> reservas = new ArrayList<>();
+
+            for (int i = 0; i < res.getSize(); i++) {
+                reservas.add(res.getElementAt(i));
+            }
+
+            String toJSON = ReservaToJson.listToJson(reservas);
+
+            System.out.println(toJSON);
+
+            Arquivo.escreverArquivo("data/ReservaData.json", toJSON);
 
             view.getListReserva().setModel(model);
             view.repaint();
