@@ -8,6 +8,8 @@ import com.mycompany.recantodobardo.controller.UserController.AdicionaCliente;
 import com.mycompany.recantodobardo.controller.UserController.EditaCliente;
 import com.mycompany.recantodobardo.controller.UserController.ExibirClientes;
 import com.mycompany.recantodobardo.controller.UserController.RemoveCliente;
+import com.mycompany.recantodobardo.controller.VTAdmCliente;
+import com.mycompany.recantodobardo.controller.VTAdmReserva;
 import com.mycompany.recantodobardo.models.Cliente;
 import com.mycompany.recantodobardo.models.Usuario;
 import com.mycompany.recantodobardo.util.Arquivo;
@@ -135,6 +137,11 @@ public class ViewClientes extends JFrame implements Views{
         JButton btnEditar = new JButton("Editar");
         btnEditar.addActionListener(new EditaCliente(this));
         jpFormulario.add(btnEditar);
+        
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new VTAdmCliente(this));
+        jpFormulario.add(btnVoltar);
+
         
         principal.add(jpFormulario, BorderLayout.CENTER);
         

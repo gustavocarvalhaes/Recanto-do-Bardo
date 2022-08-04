@@ -10,6 +10,8 @@ import com.mycompany.recantodobardo.controller.MesaController.RemoveMesa;
 import com.mycompany.recantodobardo.controller.MesaController.EditaMesa;
 import com.mycompany.recantodobardo.controller.MesaController.ExibirMesas;
 import com.mycompany.recantodobardo.controller.MesaController.MesaController;
+import com.mycompany.recantodobardo.controller.VTAdmItem;
+import com.mycompany.recantodobardo.controller.VTAdmMesa;
 import com.mycompany.recantodobardo.models.Mesa;
 
 import java.awt.BorderLayout;
@@ -127,6 +129,10 @@ public class ViewMesas extends JFrame implements Views
         btnEditar.addActionListener(new EditaMesa(this));
         jpFormulario.add(btnEditar);
         
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new VTAdmMesa(this));
+        jpFormulario.add(btnVoltar);
+
         principal.add(jpFormulario, BorderLayout.CENTER);
         
         this.add(principal);

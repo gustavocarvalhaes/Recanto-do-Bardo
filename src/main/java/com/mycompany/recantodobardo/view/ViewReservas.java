@@ -19,6 +19,7 @@ import com.mycompany.recantodobardo.controller.ReservaController.EditaReserva;
 import com.mycompany.recantodobardo.controller.ReservaController.ExibirReservas;
 import com.mycompany.recantodobardo.controller.ReservaController.IsDisponivel;
 import com.mycompany.recantodobardo.controller.ReservaController.RemoveReserva;
+import com.mycompany.recantodobardo.controller.VTAdmReserva;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -54,6 +55,7 @@ public class ViewReservas extends JFrame implements Views {
   private int lastIndex;
   private boolean disponivel;
   private JCheckBox confirmar;
+  
 
   public boolean getDisponivel() {
     return disponivel;
@@ -244,6 +246,13 @@ public class ViewReservas extends JFrame implements Views {
     JButton btnEditar = new JButton("Editar");
     btnEditar.addActionListener(new EditaReserva(this));
     jpFormulario.add(btnEditar);
+
+    
+    
+    JButton btnVoltar = new JButton("Voltar");
+    btnVoltar.addActionListener(new VTAdmReserva(this));
+    jpFormulario.add(btnVoltar);
+
 
     principal.add(jpFormulario, BorderLayout.CENTER);
 

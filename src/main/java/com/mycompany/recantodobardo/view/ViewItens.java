@@ -10,6 +10,7 @@ import com.mycompany.recantodobardo.controller.ItemController.RemoveItem;
 import com.mycompany.recantodobardo.controller.ItemController.EditaItem;
 import com.mycompany.recantodobardo.controller.ItemController.ExibirItens;
 import com.mycompany.recantodobardo.controller.ItemController.ItemController;
+import com.mycompany.recantodobardo.controller.VTAdmItem;
 import com.mycompany.recantodobardo.models.Item;
 
 import java.awt.BorderLayout;
@@ -127,6 +128,10 @@ public class ViewItens extends JFrame implements Views
         JButton btnEditar = new JButton("Editar");
         btnEditar.addActionListener(new EditaItem(this));
         jpFormulario.add(btnEditar);
+        
+        JButton btnVoltar = new JButton("Voltar");
+        btnVoltar.addActionListener(new VTAdmItem(this));
+        jpFormulario.add(btnVoltar);
         
         principal.add(jpFormulario, BorderLayout.CENTER);
         
