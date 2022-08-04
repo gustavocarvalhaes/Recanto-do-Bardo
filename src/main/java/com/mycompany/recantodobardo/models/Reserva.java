@@ -1,26 +1,29 @@
 
-  // Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-  // Gabriella Cruz e Silva (gabriellac2002) 202165512B
-  // Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
+// Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
+// Gabriella Cruz e Silva (gabriellac2002) 202165512B
+// Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
 
 package com.mycompany.recantodobardo.models;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Reserva {
-    
-    private Cliente cliente; 
+
+    private Cliente cliente;
     private Item item;
     private Mesa mesa;
     private String data;
     private String hora;
+    private boolean disponivel;
 
-    // public Reserva(Cliente cliente, List<Item> itens, Mesa mesa, String data, String hora) {
-    //     this.cliente = cliente;
-    //     this.itens = itens;
-    //     this.data = data;
-    //     this.hora = hora;
+    // public Reserva(Cliente cliente, List<Item> itens, Mesa mesa, String data,
+    // String hora) {
+    // this.cliente = cliente;
+    // this.itens = itens;
+    // this.data = data;
+    // this.hora = hora;
     // }
 
     public Reserva(Object selectedItem, Object selectedItem2, Object selectedItem3, String text, String text2) {
@@ -30,6 +33,14 @@ public class Reserva {
         this.mesa = (Mesa) selectedItem3;
         this.data = text;
         this.hora = text2;
+    }
+
+    public boolean getDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 
     public Cliente getCliente() {
@@ -76,7 +87,5 @@ public class Reserva {
     public String toString() {
         return "Reserva{" + cliente + ", N°: " + mesa + '}';
     }
-    
-    
 
 }
