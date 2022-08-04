@@ -53,7 +53,7 @@ public class TelaLogin extends JFrame implements Views{
     
     public TelaLogin(){
         
-        this.inicializar();
+//        this.inicializar();
     }
     
     
@@ -141,7 +141,7 @@ public class TelaLogin extends JFrame implements Views{
     
     public static void main(String[] args) {
         TelaLogin tela = new TelaLogin();
-//        tela.inicializar();
+        tela.inicializar();
     }
     
 }

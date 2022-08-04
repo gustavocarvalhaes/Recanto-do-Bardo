@@ -29,16 +29,14 @@ public class AdicionaCliente implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) { // esse é pra adicionar
         DefaultListModel<Cliente> model = (DefaultListModel<Cliente>) view.getLista().getModel();
-
         model.addElement(
                 new Cliente(
                         view.getText_field_nome().getText(),
                         view.getText_field_email().getText(),
                         view.getText_field_senha().getText(),
-                        false));
+                        view.getAdemir()));
 
         view.getLista().setModel(model);
         view.repaint();
-
     }
 }

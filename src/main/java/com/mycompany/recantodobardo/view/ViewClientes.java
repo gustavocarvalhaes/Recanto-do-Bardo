@@ -8,6 +8,7 @@ import com.mycompany.recantodobardo.controllers.AdicionaCliente;
 import com.mycompany.recantodobardo.controllers.EditaCliente;
 import com.mycompany.recantodobardo.controllers.ExibirClientes;
 import com.mycompany.recantodobardo.controllers.RemoveCliente;
+import com.mycompany.recantodobardo.controllers.SelecionaAdm;
 import com.mycompany.recantodobardo.models.Cliente;
 import com.mycompany.recantodobardo.models.Usuario;
 import com.mycompany.recantodobardo.util.LerArquivo;
@@ -16,6 +17,7 @@ import java.awt.Dimension;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,13 +36,27 @@ public class ViewClientes extends JFrame implements Views{
     private int lastIndex;
     private JTextField text_field_email;
     private JTextField text_field_senha;
+    private JCheckBox isAdm;
+    private boolean ademir;
     private JPanel principal;
     private JList<Cliente> lista;
-
+        
+    public JCheckBox getIsAdm(){
+        return isAdm;
+    }
+    
+    public boolean getAdemir(){
+        return ademir;
+    }
+    
+    public void setAdemir(boolean ademir){
+        this.ademir = ademir;
+    }
+    
     public JList<Cliente> getLista() {
         return lista;
     }
-
+    
     public void setLista(JList<Cliente> lista) {
         this.lista = lista;
     }
@@ -120,11 +136,21 @@ public class ViewClientes extends JFrame implements Views{
         jpFormulario.add(new JLabel("Senha:"));
         text_field_senha = new JTextField(size);
         jpFormulario.add(text_field_senha);
+        
+        
+        isAdm = new JCheckBox("Administrador");
+        jpFormulario.add(isAdm);
+        isAdm.addActionListener(new SelecionaAdm (this));
 
+        
+        
                 
-
+        
         JButton btnAdicionar = new JButton("Adicionar");
+      
         btnAdicionar.addActionListener(new AdicionaCliente(this));
+       
+        
         jpFormulario.add(btnAdicionar);
 
         JButton btnRemover = new JButton("Remover");
