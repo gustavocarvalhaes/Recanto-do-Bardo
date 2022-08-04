@@ -144,9 +144,9 @@ public class ViewReservas extends JFrame implements Views {
   }
 
   public ViewReservas() {
-    // this.listClientes = new ArrayList<>();
     this.lastIndex = 0;
-    inicializar();
+
+    //inicializar();
   }
 
   @Override
@@ -253,6 +253,6 @@ public class ViewReservas extends JFrame implements Views {
 
   public static void main(String[] args) {
     ViewReservas tela = new ViewReservas();
-    // tela.inicializar();
+    tela.inicializar();
   }
 }

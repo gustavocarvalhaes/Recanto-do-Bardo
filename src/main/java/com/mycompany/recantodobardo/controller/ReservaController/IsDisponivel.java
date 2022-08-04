@@ -28,11 +28,11 @@ public class IsDisponivel implements ActionListener {
         {
             String lerArquivo = Arquivo.lerArquivo("data/ReservaData.json");
             List<Reserva> reservas = ReservaToJson.listaReservas(lerArquivo);
-
+            
+            view.setDisponivel(true);
             for (Reserva reserva : reservas) {
-                if (reserva.getData() == view.getText_field_data().getText()
-                        && reserva.getMesa() == view.getCbMesas().getSelectedItem()
-                        && reserva.getHora() == view.getText_field_hora().getText()) {
+             
+                if (reserva.getData().equals(view.getText_field_data().getText()) && reserva.getHora().equals(view.getText_field_hora().getText())) {
                     view.setDisponivel(false);
                 }
             }
