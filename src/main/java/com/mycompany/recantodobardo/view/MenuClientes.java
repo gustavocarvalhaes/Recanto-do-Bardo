@@ -5,6 +5,7 @@
 
 package com.mycompany.recantodobardo.view;
 
+import com.mycompany.recantodobardo.controller.MudarTela;
 import java.awt.BorderLayout;
 import java.awt.Button;
 import java.awt.Dimension;
@@ -43,10 +44,10 @@ public class MenuClientes extends JFrame implements Views
         
         JPanel espaco1 = new JPanel();
         espaco1.setSize(200,100);
-        espaco1.setLayout(new GridLayout(3,1));
+        espaco1.setLayout(new GridLayout(2,1));
         JPanel espaco2 = new JPanel();
         espaco2.setSize(200,100);
-        espaco2.setLayout(new GridLayout(3,1));
+        espaco2.setLayout(new GridLayout(2,1));
         
         principal.add(espaco1);
         principal.add(espaco2);
@@ -55,12 +56,10 @@ public class MenuClientes extends JFrame implements Views
         espaco1.add(label_titulo);
         JLabel label_espaco = new JLabel("");
         espaco2.add(label_espaco);
-        this.setCad_clientes(new JButton("Cadastro Clientes"));
-        espaco1.add(this.cad_clientes);
-        //btnAdicionar.addActionListener(new SalvarContato(this));
+        
         this.setCad_reservas(new JButton("Cadastro Reservas"));
         espaco1.add(this.cad_reservas);
-        //btnAdicionar.addActionListener(new SalvarContato(this));
+        this.cad_reservas.addActionListener(new MudarTela(this));
         
         this.add(principal);
         this.setVisible(true);

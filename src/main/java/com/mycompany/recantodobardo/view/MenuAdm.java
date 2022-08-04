@@ -5,6 +5,11 @@
 
 package com.mycompany.recantodobardo.view;
 
+import com.mycompany.recantodobardo.controller.MudarTela;
+import com.mycompany.recantodobardo.controller.MudarTelaCliente;
+import com.mycompany.recantodobardo.controller.MudarTelaItens;
+import com.mycompany.recantodobardo.controller.MudarTelaReserva;
+import com.mycompany.recantodobardo.controller.MudarTelasMesas;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -58,15 +63,21 @@ public class MenuAdm extends JFrame implements Views
         espaco2.add(label_espaco);
         this.setCad_clientes(new JButton("Cadastro Clientes"));
         espaco1.add(this.cad_clientes);
+        cad_clientes.addActionListener(new MudarTelaCliente(this));
         //btnAdicionar.addActionListener(new SalvarContato(this));
         this.setCad_reservas(new JButton("Cadastro Reservas"));
         espaco1.add(this.cad_reservas);
+        cad_reservas.addActionListener(new MudarTelaReserva(this));
         //btnAdicionar.addActionListener(new SalvarContato(this));
         this.setCad_itens(new JButton("Cadastro Itens"));
         espaco1.add(this.cad_itens);
+        cad_itens.addActionListener(new MudarTelaItens(this));
+
         //btnAdicionar.addActionListener(new SalvarContato(this));
         this.setCad_mesas(new JButton("Cadastro Mesas"));
         espaco1.add(this.cad_mesas);
+        cad_mesas.addActionListener(new MudarTelasMesas(this));
+
         //btnAdicionar.addActionListener(new SalvarContato(this));
         
         this.add(principal);
