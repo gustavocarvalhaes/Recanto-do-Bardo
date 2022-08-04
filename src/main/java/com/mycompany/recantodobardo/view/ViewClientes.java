@@ -1,17 +1,15 @@
-
-  // Ana Beatriz Lana Maciel Moreira Armond (SilverBlitzy) 202165501B
-  // Gabriella Cruz e Silva (gabriellac2002) 202165512B
-  // Gustavo Carvalhaes da Fonseca Ferreira (gustavirus) 202065522B
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.recantodobardo.view;
-
 import com.mycompany.recantodobardo.controller.UserController.ClienteController;
 import com.mycompany.recantodobardo.controller.UserController.AdicionaCliente;
 import com.mycompany.recantodobardo.controller.UserController.EditaCliente;
 import com.mycompany.recantodobardo.controller.UserController.ExibirClientes;
 import com.mycompany.recantodobardo.controller.UserController.RemoveCliente;
 import com.mycompany.recantodobardo.models.Cliente;
-
+import com.mycompany.recantodobardo.models.Usuario;
 import com.mycompany.recantodobardo.util.Arquivo;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -46,7 +44,7 @@ public class ViewClientes extends JFrame implements Views{
     public void setLista(JList<Cliente> lista) {
         this.lista = lista;
     }
-    
+
     public ViewClientes(){
         this.lastIndex = 0;
     }
@@ -92,7 +90,7 @@ public class ViewClientes extends JFrame implements Views{
         this.addWindowListener(new ClienteController(this));
         
         JPanel jpClientes = new JPanel();
-        jpClientes.setBorder(BorderFactory.createTitledBorder("Clientes"));
+        jpClientes.setBorder(BorderFactory.createTitledBorder("Usuários"));
         jpClientes.setLayout(new BorderLayout());
         jpClientes.setPreferredSize(new Dimension(200, 300));
         DefaultListModel<Cliente> model = new DefaultListModel<>();

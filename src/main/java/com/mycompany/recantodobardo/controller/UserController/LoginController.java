@@ -52,7 +52,7 @@ public class LoginController implements ActionListener {
     public void TemLogin(String email, String senha){
         
         try {
-            String lerArquivo = Arquivo.lerArquivo("data/UsuariosJson.json");
+            String lerArquivo = Arquivo.lerArquivo("data/UserData.json");
             List<Cliente> clientes = ClienteToJson.listaClientes(lerArquivo);
      
             for(Cliente cliente : clientes) {
